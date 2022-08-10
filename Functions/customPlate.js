@@ -24,7 +24,7 @@ exports.selectIngredient = async(req, res) => {
 }
 
 exports.saveCustomPlate = async(req, res) => {
-    const token = req.header["token"]
+    const token = req.headers['token']
     const {name, ingredients, data} = req.body
     try{Plate.create({
         name,
@@ -40,7 +40,7 @@ exports.saveCustomPlate = async(req, res) => {
 }
 
 exports.platesList = async(req, res) => {
-    const token = req.header["token"]
+    const token = req.headers['token']
     Plate.find({token}, function(err,doc){
         res.send(doc)
     })

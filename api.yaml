@@ -4,7 +4,7 @@ info:
 paths:
   /reccomendingCalorie:
     post:
-      tags: [On Bording]
+      tags: [On Boarding]
       parameters:
         - in: body
           name: Body Info
@@ -40,7 +40,7 @@ paths:
 
   /signup:
     post:
-      tags: [On Bording]
+      tags: [On Boarding]
       parameters:
         - in: body
           name: Personal Information
@@ -184,7 +184,7 @@ paths:
 
   /login:
     post:
-      tags: [On Bording]
+      tags: [On Boarding]
       parameters:
         - in: body
           name: Login
@@ -207,105 +207,40 @@ paths:
               example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmU1ODc0ZWVjNjViNDFhMjRjZWQ2NGQiLCJpYXQiOjE2NTkyMDk1NTB9.BXoa3_Axxutjb37JOB_n0jrxroW1GAm-bcndxc1W_Gk"
         400:
           description: "Bad Request"
-  /userConnection:
-    post:
-      tags: [On Bording]
-      parameters:
-        - in: body
-          name: token
-          schema:
-            type: object
-            required:
-              - token
-            properties:
-              token:
-                type: string
-      responses:
-        200:
-          description: "Success"
-        404:
-          description: "Not Found"
-        400:
-          description: "Bad Request"
+  # /userConnection:
+  #   post:
+  #     tags: [On Boarding]
+  #     parameters:
+  #       - in: header
+  #         name: token
+  #         descreption: token
+  #         required: true
+  #         type: string
+  #     responses:
+  #       200:
+  #         description: "Success"
+  #       404:
+  #         description: "Not Found"
+  #       400:
+  #         description: "Bad Request"
 
   /logout:
     post:
       tags: [Log Out]
       parameters:
-        - in: body
+        - in: header
           name: token
-          schema:
-            type: object
-            required:
-              - token
-            properties:
-              token:
-                type: string
+          descreption: token
+          required: true
+          type: string
       responses:
         200:
           description: "Success"
         500:
           description: "Internal Server Error"
-  /dailyCalorie:
-    get:
-      tags: [Daily Nutrition Tracker]
-      parameters:
-        - in: body
-          name: Daily Calorie
-          schema:
-            type: object
-            required: 
-              - date
-              - nutrition
-            properties:
-              date:
-                type: string
-              nutrition:
-                type: object
-      responses:
-        200:
-          description: "Success"
-        400:
-          description: "Bad Request"
-
-  # /generatePlan:
-  #   post:
-  #     tags: [Schedule]
-  #     parameters:
-  #       - in: header
-  #         name: token
-  #         descreption: token
-  #         required: true
-  #         type: string
-  #     responses:
-  #       200:
-  #         description: "Success"
-  #         schema:
-  #           type: object
-  #           example: {"week": {"monday": {"meals": [ {"id": 661984,"imageType": "jpg","title": "Stuffed Breakfast Balls","readyInMinutes": 45,"servings": 6,"sourceUrl": "https://spoonacular.com/stuffed-breakfast-balls-661984"}, {"id": 776081,"imageType": "jpg","title": "One Pan Creamy Garlic Herb Chicken & Potatoes","readyInMinutes": 30,"servings": 4,"sourceUrl": "http://www.lecremedelacrumb.com/2016/06/one-pan-creamy-garlic-herb-chicken-potatoes.html"},{"id": 411343,"imageType": "jpg","title": "Creamy Poppy Seed Fettuccine","readyInMinutes": 25,"servings": 2,"sourceUrl": "http://www.tasteofhome.com/recipes/creamy-poppy-seed-fettuccine"}],"nutrients": {"calories": 1766.04,"protein": 72.19, "fat": 124.45,"carbohydrates": 92.55}},"tuesday": {"meals": [{"id": 1054447,"imageType": "jpg","title": "Keto Thumbprint Cookies – Low Carb","readyInMinutes": 28,"servings": 15,"sourceUrl": "https://www.ibreatheimhungry.com/keto-thumbprint-cookies-low-carb/"},{"id": 578820,"imageType": "jpg","title": "Creamy Lemon Chicken Pasta","readyInMinutes": 30,"servings": 6,"sourceUrl": "http://www.foodfanatic.com/recipes/creamy-lemon-chicken-pasta-recipe/"},{"id": 398736,"imageType": "jpg","title": "Family-Friendly Stuffed Cheeseburgers","readyInMinutes": 40,"servings": 6,"sourceUrl": "http://www.tasteofhome.com/recipes/family-friendly-stuffed-cheeseburgers"}],"nutrients": {"calories": 1766.29,"protein": 89.43,"fat": 97.76,"carbohydrates": 131.45 }}, "wednesday": {"meals": [{"id": 585397,"imageType": "jpg","title": "Caramel Cream Dulce de Leche Pie","readyInMinutes": 240,"servings": 8,"sourceUrl": "http://www.sippitysup.com/recipe/caramel-cream-dulce-de-leche-pie/"},{"id": 822316,"imageType": "jpg","title": "Baked Haddock with Cashew Cracker Crust","readyInMinutes": 25, "servings": 4,"sourceUrl": "http://www.afamilyfeast.com/baked-haddock-with-cashew-cracker-crust/"}, {"id": 106999,"imageType": "png","title": "Mother's Everyday Pimento Cheese","readyInMinutes": 300,"servings": 3,"sourceUrl": "http://www.epicurious.com/recipes/food/views/Mothers-Everyday-Pimento-Cheese-102560"} ],"nutrients": {"calories": 1767.43,"protein": 69.73, "fat": 156.58,"carbohydrates": 21.48 }},"thursday": {"meals": [{"id": 266178,"imageType": "jpg","title": "S'more Snack Treats","readyInMinutes": 55, "servings": 55,"sourceUrl": "http://www.Kraftrecipes.com/recipes/smore-snack-treats-56487.aspx"}, {"id": 1697535,"imageType": "jpg","title": "Panera Spicy Thai Salad","readyInMinutes": 20,"servings": 4,"sourceUrl": "https://spoonacular.com/panera-spicy-thai-salad-1697535"},{"id": 428933,"imageType": "jpg","title": "Kielbasa Tortellini Alfredo","readyInMinutes": 20,"servings": 4,"sourceUrl": "http://www.tasteofhome.com/Recipes/kielbasa-tortellini-alfredo"}],"nutrients": {"calories": 1766.58,"protein": 125.73,"fat": 105.71,"carbohydrates": 82.45}},"friday": {"meals": [{"id": 700263,"imageType": "jpg","title": "Snowball Cookies with Cranberries","readyInMinutes": 28,"servings": 36,"sourceUrl": "http://www.galonamission.com/snowball-cookies-with-cranberries/"},{"id": 567470,"imageType": "jpg","title": "Huevos Rancheros with Chorizo Refried Beans","readyInMinutes": 20,"servings": 4,"sourceUrl": "http://www.lifesambrosia.com/2010/09/huevos-rancheros-with-chorizo-refried-beans-recipe.html"},{"id": 390245,"imageType": "jpg", "title": "Easy Sausage & Ravioli","readyInMinutes": 25,"servings": 4,"sourceUrl": "http://www.tasteofhome.com/Recipes/easy-sausage---ravioli"}],"nutrients": {"calories": 1766.48,"protein": 72.41,"fat": 99.04,"carbohydrates": 144.25} },"saturday": {"meals": [{"id": 605441,"imageType": "jpg","title": "Almond Fairy Cakes with Candied Borage Flowers","readyInMinutes": 120,"servings": 36,"sourceUrl": "http://www.loveandoliveoil.com/2014/07/almond-fairy-cakes-with-candied-borage-flowers.html"},{"id": 742873,"imageType": "jpeg","title": "Fried Cheese Curds","readyInMinutes": 15,"servings": 4,"sourceUrl": "http://www.foodnetwork.com/recipes/amanda-freitag/fried-cheese-curds.html"},{"id": 903662,"imageType": "jpg","title": "Sassy Pants Creamy Macaroni and Cheese","readyInMinutes": 45,"servings": 4, "sourceUrl": "http://heatherlikesfood.com/sassy-pants-creamy-macaroni-cheese/" }],"nutrients": {"calories": 1765.76,"protein": 56.9,"fat": 113.81,"carbohydrates": 131.66} }, "sunday": {"meals": [{"id": 520899,"imageType": "jpg","title": "Cheese Pimiento Spread","readyInMinutes": 10,"servings": 3,"sourceUrl": "https://casaveneracion.com/cheese-pimiento-spread/"}, {"id": 407691,"imageType": "jpg","title": "Little Cheddar Meat Loaves","readyInMinutes": 30,"servings": 2,"sourceUrl": "http://www.tasteofhome.com/Recipes/little-cheddar-meat-loaves"}, {"id": 890002,"imageType": "jpg","title": "Fresh and Easy Vietnamese Noodle Salad","readyInMinutes": 45,"servings": 6,"sourceUrl": "http://www.foodiecrush.com/easy-vietnamese-noodle-salad/"}],"nutrients": {"calories": 1766.1,"protein": 87.82,"fat": 123.45,"carbohydrates": 79.54}}}}
-  #       400:
-  #         description: "Bad Request"
-  #       401:
-  #         description: "Invalid Token"
-  # /recipes:
-  #   post:
-  #     parameters:
-  #       - in: header
-  #         name: token
-  #         descreption: token
-  #         required: true
-  #         type: string
-  #     responses:
-  #       200:
-  #         description: "Success"
-  #         schema:
-  #           type: object
-  #           example: {"results":[{"id":716426,"title":"Cauliflower, Brown Rice, and Vegetable Fried Rice","image":"https://spoonacular.com/recipeImages/716426-312x231.jpg","imageType":"jpg"},{"id":715594,"title":"Homemade Garlic and Basil French Fries","image":"https://spoonacular.com/recipeImages/715594-312x231.jpg","imageType":"jpg"},{"id":715497,"title":"Berry Banana Breakfast Smoothie","image":"https://spoonacular.com/recipeImages/715497-312x231.jpg","imageType":"jpg"},{"id":644387,"title":"Garlicky Kale","image":"https://spoonacular.com/recipeImages/644387-312x231.jpg","imageType":"jpg"},{"id":716268,"title":"African Chicken Peanut Stew","image":"https://spoonacular.com/recipeImages/716268-312x231.jpg","imageType":"jpg"},{"id":716381,"title":"Nigerian Snail Stew","image":"https://spoonacular.com/recipeImages/716381-312x231.jpg","imageType":"jpg"},{"id":782601,"title":"Red Kidney Bean Jambalaya","image":"https://spoonacular.com/recipeImages/782601-312x231.jpg","imageType":"jpg"},{"id":794349,"title":"Broccoli and Chickpea Rice Salad","image":"https://spoonacular.com/recipeImages/794349-312x231.jpg","imageType":"jpg"},{"id":715446,"title":"Slow Cooker Beef Stew","image":"https://spoonacular.com/recipeImages/715446-312x231.jpg","imageType":"jpg"},{"id":715415,"title":"Red Lentil Soup with Chicken and Turnips","image":"https://spoonacular.com/recipeImages/715415-312x231.jpg","imageType":"jpg"},{"id":766453,"title":"Hummus and Za'atar","image":"https://spoonacular.com/recipeImages/766453-312x231.jpg","imageType":"jpg"},{"id":716627,"title":"Easy Homemade Rice and Beans","image":"https://spoonacular.com/recipeImages/716627-312x231.jpg","imageType":"jpg"},{"id":716408,"title":"Greek-Style Baked Fish: Fresh, Simple, and Delicious","image":"https://spoonacular.com/recipeImages/716408-312x231.jpg","imageType":"jpg"},{"id":795751,"title":"Chicken Fajita Stuffed Bell Pepper","image":"https://spoonacular.com/recipeImages/795751-312x231.jpg","imageType":"jpg"},{"id":640941,"title":"Crunchy Brussels Sprouts Side Dish","image":"https://spoonacular.com/recipeImages/640941-312x231.jpg","imageType":"jpg"},{"id":798400,"title":"Spicy Black-Eyed Pea Curry with Swiss Chard and Roasted Eggplant","image":"https://spoonacular.com/recipeImages/798400-312x231.jpg","imageType":"jpg"},{"id":756814,"title":"Powerhouse Almond Matcha Superfood Smoothie","image":"https://spoonacular.com/recipeImages/756814-312x231.jpg","imageType":"jpg"},{"id":729366,"title":"Plantain Salad","image":"https://spoonacular.com/recipeImages/729366-312x231.jpg","imageType":"jpg"},{"id":715769,"title":"Broccolini Quinoa Pilaf","image":"https://spoonacular.com/recipeImages/715769-312x231.jpg","imageType":"jpg"},{"id":782600,"title":"Quinoa Salad with Vegetables and Cashews","image":"https://spoonacular.com/recipeImages/782600-312x231.jpg","imageType":"jpg"},{"id":642605,"title":"Farro With Mushrooms and Asparagus","image":"https://spoonacular.com/recipeImages/642605-312x231.jpg","imageType":"jpg"},{"id":715540,"title":"Summer Berry Salad","image":"https://spoonacular.com/recipeImages/715540-312x231.jpg","imageType":"jpg"},{"id":636589,"title":"Butternut Squash Frittata","image":"https://spoonacular.com/recipeImages/636589-312x231.jpg","imageType":"jpg"},{"id":640062,"title":"Corn Avocado Salsa","image":"https://spoonacular.com/recipeImages/640062-312x231.jpg","imageType":"jpg"},{"id":715495,"title":"Turkey Tomato Cheese Pizza","image":"https://spoonacular.com/recipeImages/715495-312x231.jpg","imageType":"jpg"},{"id":715421,"title":"Cheesy Chicken Enchilada Quinoa Casserole","image":"https://spoonacular.com/recipeImages/715421-312x231.jpg","imageType":"jpg"},{"id":716432,"title":"Finger Foods: Frittata Muffins","image":"https://spoonacular.com/recipeImages/716432-312x231.jpg","imageType":"jpg"},{"id":716437,"title":"Chilled Cucumber Avocado Soup with Yogurt and Kefir","image":"https://spoonacular.com/recipeImages/716437-312x231.jpg","imageType":"jpg"},{"id":639535,"title":"Citrusy Pecan Garbanzo Couscous: A Salad For Cold Weather","image":"https://spoonacular.com/recipeImages/639535-312x231.jpg","imageType":"jpg"},{"id":652417,"title":"Moroccan chickpea and lentil stew","image":"https://spoonacular.com/recipeImages/652417-312x231.jpg","imageType":"jpg"}],"offset":0,"number":30,"totalResults":5219}
-  #       401:
-  #         description: "Invalid Token"
-
-  # /recipeSearch:
-  #   post:
+  # /dailyCalorie:
+  #   get:
+  #     tags: [Daily Nutrition Tracker]
   #     parameters:
   #       - in: header
   #         name: token
@@ -313,55 +248,125 @@ paths:
   #         required: true
   #         type: string
   #       - in: body
-  #         name: Search and Filters
-  #         schema:
-  #           type: object
-  #           properties:
-  #             query:
-  #               type: string
-  #             diet:
-  #               type: string
-  #             maxCalories:
-  #               type: string
-  #             maxReadyTime:
-  #               type: string
-  #             intolerances:
-  #               type: string
-  #             type:
-  #               type: string
-  #     responses:
-  #       200:
-  #         description: "Success"
-  #         schema:
-  #           type: object
-  #           example: [{"id":641880,"title":"Easy Cheese Danish","calories":{"name":"Calories","amount":25.96,"unit":"kcal","percentOfDailyNeeds":1.3}},{"id":635297,"title":"Bleu Cheese Stuffed Wine Cherries With Honeycomb","calories":{"name":"Calories","amount":87.58,"unit":"kcal","percentOfDailyNeeds":4.38}},{"id":640489,"title":"Cream Cheese Cookies","calories":{"name":"Calories","amount":24.15,"unit":"kcal","percentOfDailyNeeds":1.21}},{"id":640508,"title":"Cream Cheese Stuffed Baby Bell Pepper Appetizer","calories":{"name":"Calories","amount":43.24,"unit":"kcal","percentOfDailyNeeds":2.16}},{"id":640513,"title":"Cream Cheese with Sun Dried Tomatoes and Pesto Pastry","calories":{"name":"Calories","amount":83.76,"unit":"kcal","percentOfDailyNeeds":4.19}},{"id":1697757,"title":"Crab Mac and Cheese","calories":{"name":"Calories","amount":499.46,"unit":"kcal","percentOfDailyNeeds":24.97}},{"id":1697541,"title":"Pasta With Feta Cheese And Asparagus","calories":{"name":"Calories","amount":804.13,"unit":"kcal","percentOfDailyNeeds":40.21}},{"id":647654,"title":"Hungarian Cottage-Cheese Biscuits (Túrós Pogácsa)","calories":{"name":"Calories","amount":82.29,"unit":"kcal","percentOfDailyNeeds":4.11}},{"id":645707,"title":"Grilled Figs With Blue Cheese and Citrus Honey","calories":{"name":"Calories","amount":28.97,"unit":"kcal","percentOfDailyNeeds":1.45}},{"id":632246,"title":"Alouette Crumbled Goat Cheese Provencal Mini Tacos","calories":{"name":"Calories","amount":10.36,"unit":"kcal","percentOfDailyNeeds":0.52}},{"id":1697591,"title":"Buffalo Chicken Grilled Cheese","calories":{"name":"Calories","amount":417.59,"unit":"kcal","percentOfDailyNeeds":20.88}},{"id":638288,"title":"Chicken Roll-Ups With Feta Cheese and Arugula","calories":{"name":"Calories","amount":18.33,"unit":"kcal","percentOfDailyNeeds":0.92}},{"id":664912,"title":"Waldorf Salad With Fresh Goat Cheese","calories":{"name":"Calories","amount":95.94,"unit":"kcal","percentOfDailyNeeds":4.8}},{"id":655477,"title":"Peas And Tarragon With Fresh Goat Cheese","calories":{"name":"Calories","amount":37.6,"unit":"kcal","percentOfDailyNeeds":1.88}},{"id":664585,"title":"Vegetable Quiche Made With Fresh Tomatoes, Spinach, Basil and Goat Cheese","calories":{"name":"Calories","amount":70.9,"unit":"kcal","percentOfDailyNeeds":3.54}},{"id":1697803,"title":"Pumpkin Cheesecake","calories":{"name":"Calories","amount":512.86,"unit":"kcal","percentOfDailyNeeds":25.64}},{"id":1697811,"title":"Mint Chocolate Cheesecake","calories":{"name":"Calories","amount":790.99,"unit":"kcal","percentOfDailyNeeds":39.55}},{"id":1697685,"title":"Lemon Raspberry Cheesecake Bars","calories":{"name":"Calories","amount":339.63,"unit":"kcal","percentOfDailyNeeds":16.98}},{"id":157107,"title":"Skinny Cheesecake Brownie Bites","calories":{"name":"Calories","amount":77.21,"unit":"kcal","percentOfDailyNeeds":3.86}},{"id":634798,"title":"Beet Slaw","calories":{"name":"Calories","amount":106.1,"unit":"kcal","percentOfDailyNeeds":5.3}},{"id":59431,"title":"Berry Trifle","calories":{"name":"Calories","amount":81.01,"unit":"kcal","percentOfDailyNeeds":4.05}},{"id":664932,"title":"Walnut Pesto","calories":{"name":"Calories","amount":54.74,"unit":"kcal","percentOfDailyNeeds":2.74}},{"id":640323,"title":"Crab Wontons","calories":{"name":"Calories","amount":69.56,"unit":"kcal","percentOfDailyNeeds":3.48}},{"id":636958,"title":"Caprese Sticks","calories":{"name":"Calories","amount":33.06,"unit":"kcal","percentOfDailyNeeds":1.65}},{"id":633852,"title":"baked tomatoes","calories":{"name":"Calories","amount":62.69,"unit":"kcal","percentOfDailyNeeds":3.13}},{"id":1697651,"title":"Caesar Dressing","calories":{"name":"Calories","amount":812.15,"unit":"kcal","percentOfDailyNeeds":40.61}},{"id":654735,"title":"Party Rice Balls","calories":{"name":"Calories","amount":68.37,"unit":"kcal","percentOfDailyNeeds":3.42}},{"id":636769,"title":"Mini Ham Omelets","calories":{"name":"Calories","amount":90.86,"unit":"kcal","percentOfDailyNeeds":4.54}},{"id":1697579,"title":"Rigatoni al Forno","calories":{"name":"Calories","amount":941.3,"unit":"kcal","percentOfDailyNeeds":47.07}},{"id":645092,"title":"Gougeres Appetizer","calories":{"name":"Calories","amount":50.57,"unit":"kcal","percentOfDailyNeeds":2.53}}]
-
-  # /selectRecipe:
-  #   post:
-  #     # tags: [Schedule]
-  #     parameters:
-  #       - in: header
-  #         name: token
-  #         descreption: token
-  #         required: true
-  #         type: string
-  #       - in: body
-  #         name: Recipe's ID
+  #         name: Daily Calorie
   #         schema:
   #           type: object
   #           required: 
-  #             - id
+  #             - date
+  #             - nutrition
   #           properties:
-  #             id:
-  #               type: number
+  #             date:
+  #               type: string
+  #             nutrition:
+  #               type: object
   #     responses:
   #       200:
   #         description: "Success"
-  #         schema:
-  #           type: object
-  #           example: {"title":"Cheese Pork Chops","image":"https://spoonacular.com/recipeImages/637569-556x370.jpg","servings":4,"readyInMinutes":{"preparationTime":-1,"cookingTime":-1},"dairyFree":false,"diets":["gluten free","primal"],"ingredients":[{"id":1002046,"aisle":"Condiments","image":"dijon-mustard.jpg","consistency":"LIQUID","name":"dijon mustard","nameClean":"creole mustard","original":"2 tablespoons Dijon mustard","originalName":"Dijon mustard","amount":2,"unit":"tablespoons","meta":[],"measures":{"us":{"amount":2,"unitShort":"Tbsps","unitLong":"Tbsps"},"metric":{"amount":2,"unitShort":"Tbsps","unitLong":"Tbsps"}}},{"id":1023,"aisle":"Cheese","image":"gruyere.jpg","consistency":"SOLID","name":"gruyere cheese","nameClean":"gruyere","original":"½ cup gruyere cheese, shredded","originalName":"gruyere cheese, shredded","amount":0.5,"unit":"cup","meta":["shredded"],"measures":{"us":{"amount":0.5,"unitShort":"cups","unitLong":"cups"},"metric":{"amount":118.294,"unitShort":"ml","unitLong":"milliliters"}}},{"id":1053,"aisle":"Milk, Eggs, Other Dairy","image":"fluid-cream.jpg","consistency":"LIQUID","name":"heavy cream","nameClean":"cream","original":"½ cup heavy cream","originalName":"heavy cream","amount":0.5,"unit":"cup","meta":[],"measures":{"us":{"amount":0.5,"unitShort":"cups","unitLong":"cups"},"metric":{"amount":118.294,"unitShort":"ml","unitLong":"milliliters"}}},{"id":4053,"aisle":"Oil, Vinegar, Salad Dressing","image":"olive-oil.jpg","consistency":"LIQUID","name":"olive oil","nameClean":"olive oil","original":"1 teaspoon Olive oil","originalName":"Olive oil","amount":1,"unit":"teaspoon","meta":[],"measures":{"us":{"amount":1,"unitShort":"tsp","unitLong":"teaspoon"},"metric":{"amount":1,"unitShort":"tsp","unitLong":"teaspoon"}}},{"id":10010062,"aisle":"Meat","image":"pork-chops.jpg","consistency":"SOLID","name":"pork chops","nameClean":"pork chops","original":"4 pork chops","originalName":"pork chops","amount":4,"unit":"","meta":[],"measures":{"us":{"amount":4,"unitShort":"","unitLong":""},"metric":{"amount":4,"unitShort":"","unitLong":""}}},{"id":1102047,"aisle":"Spices and Seasonings","image":"salt-and-pepper.jpg","consistency":"SOLID","name":"salt and pepper","nameClean":"salt and pepper","original":"Salt and pepper","originalName":"Salt and pepper","amount":4,"unit":"servings","meta":[],"measures":{"us":{"amount":4,"unitShort":"servings","unitLong":"servings"},"metric":{"amount":4,"unitShort":"servings","unitLong":"servings"}}},{"id":1145,"aisle":"Milk, Eggs, Other Dairy","image":"butter-sliced.jpg","consistency":"SOLID","name":"unsalted butter","nameClean":"unsalted butter","original":"1 tablespoon unsalted butter","originalName":"unsalted butter","amount":1,"unit":"tablespoon","meta":["unsalted"],"measures":{"us":{"amount":1,"unitShort":"Tbsp","unitLong":"Tbsp"},"metric":{"amount":1,"unitShort":"Tbsp","unitLong":"Tbsp"}}}],"nutrients":[{"name":"Calories","amount":415.51,"unit":"kcal","percentOfDailyNeeds":20.78},{"name":"Fat","amount":29.46,"unit":"g","percentOfDailyNeeds":45.32},{"name":"Saturated Fat","amount":15.2,"unit":"g","percentOfDailyNeeds":94.99},{"name":"Carbohydrates","amount":1.3,"unit":"g","percentOfDailyNeeds":0.43},{"name":"Net Carbohydrates","amount":0.98,"unit":"g","percentOfDailyNeeds":0.36},{"name":"Sugar","amount":1.04,"unit":"g","percentOfDailyNeeds":1.15},{"name":"Cholesterol","amount":149.07,"unit":"mg","percentOfDailyNeeds":49.69},{"name":"Sodium","amount":466.86,"unit":"mg","percentOfDailyNeeds":20.3},{"name":"Protein","amount":34.99,"unit":"g","percentOfDailyNeeds":69.97},{"name":"Selenium","amount":50.22,"unit":"µg","percentOfDailyNeeds":71.75},{"name":"Vitamin B1","amount":0.92,"unit":"mg","percentOfDailyNeeds":61.6},{"name":"Vitamin B3","amount":10.78,"unit":"mg","percentOfDailyNeeds":53.92},{"name":"Vitamin B6","amount":1,"unit":"mg","percentOfDailyNeeds":50.09},{"name":"Phosphorus","amount":428.86,"unit":"mg","percentOfDailyNeeds":42.89},{"name":"Vitamin B2","amount":0.36,"unit":"mg","percentOfDailyNeeds":20.94},{"name":"Calcium","amount":201.36,"unit":"mg","percentOfDailyNeeds":20.14},{"name":"Zinc","amount":2.84,"unit":"mg","percentOfDailyNeeds":18.96},{"name":"Vitamin B12","amount":1.03,"unit":"µg","percentOfDailyNeeds":17.13},{"name":"Potassium","amount":553.59,"unit":"mg","percentOfDailyNeeds":15.82},{"name":"Vitamin A","amount":691.9,"unit":"IU","percentOfDailyNeeds":13.84},{"name":"Vitamin B5","amount":1.17,"unit":"mg","percentOfDailyNeeds":11.69},{"name":"Magnesium","amount":46.54,"unit":"mg","percentOfDailyNeeds":11.63},{"name":"Vitamin D","amount":1.16,"unit":"µg","percentOfDailyNeeds":7.76},{"name":"Vitamin E","amount":0.75,"unit":"mg","percentOfDailyNeeds":4.97},{"name":"Iron","amount":0.86,"unit":"mg","percentOfDailyNeeds":4.75},{"name":"Copper","amount":0.09,"unit":"mg","percentOfDailyNeeds":4.49},{"name":"Vitamin K","amount":2.36,"unit":"µg","percentOfDailyNeeds":2.24},{"name":"Manganese","amount":0.04,"unit":"mg","percentOfDailyNeeds":2.22},{"name":"Fiber","amount":0.32,"unit":"g","percentOfDailyNeeds":1.29}],"calorieBreakdown":{"percentProtein":34.11,"percentFat":64.62,"percentCarbs":1.27},"weightPerServing":{"amount":193,"unit":"g"},"summary":"Cheese Pork Chops is a <b>gluten free and primal</b> main course. This recipe serves 4 and costs $2.35 per serving. One serving contains <b>417 calories</b>, <b>35g of protein</b>, and <b>30g of fat</b>. This recipe from Foodista has 7 fans. A mixture of dijon mustard, gruyere cheese, salt and pepper, and a handful of other ingredients are all it takes to make this recipe so scrumptious. To use up the salt and pepper you could follow this main course with the <a href=\"https://spoonacular.com/recipes/dr-pepper-cake-with-flour-cooked-frosting-539165\">Dr. Pepper Cake with Flour Cooked Frosting</a> as a dessert. From preparation to the plate, this recipe takes about <b>30 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 60%</b>. This score is solid. Try <a href=\"https://spoonacular.com/recipes/cream-cheese-pork-chops-397985\">Cream Cheese Pork Chops</a>, <a href=\"https://spoonacular.com/recipes/cheese-onion-pork-chops-222073\">Cheese & onion pork chops</a>, and <a href=\"https://spoonacular.com/recipes/pork-chops-and-cheese-potatoes-121722\">Pork Chops and Cheese Potatoes</a> for similar recipes.","instruction":[{"name":"","steps":[{"number":1,"step":"In a heavy bottom skillet melt the butter with the olive oil. Saut` the pork chops over medium high 3 minutes on each sided. Lower the heat to medium and cook for another 5 to 6 minutes for side.Salt and pepper to taste.Meanwhile turn on the broil.","ingredients":[{"id":1102047,"name":"salt and pepper","localizedName":"salt and pepper","image":"salt-and-pepper.jpg"},{"id":10010062,"name":"pork chops","localizedName":"pork chops","image":"pork-chops.jpg"},{"id":4053,"name":"olive oil","localizedName":"olive oil","image":"olive-oil.jpg"},{"id":1001,"name":"butter","localizedName":"butter","image":"butter-sliced.jpg"}],"equipment":[{"id":404645,"name":"frying pan","localizedName":"frying pan","image":"pan.png"}],"length":{"number":8,"unit":"minutes"}},{"number":2,"step":"Mix together in a bowl the heavy cream, mustard and the cheese.","ingredients":[{"id":1053,"name":"heavy cream","localizedName":"heavy cream","image":"fluid-cream.jpg"},{"id":2046,"name":"mustard","localizedName":"mustard","image":"regular-mustard.jpg"},{"id":1041009,"name":"cheese","localizedName":"cheese","image":"cheddar-cheese.png"}],"equipment":[{"id":404783,"name":"bowl","localizedName":"bowl","image":"bowl.jpg"}]},{"number":3,"step":"Remove the chops from the stove and place them in a oven proof dish.","ingredients":[],"equipment":[{"id":404794,"name":"stove","localizedName":"stove","image":"oven.jpg"},{"id":404784,"name":"oven","localizedName":"oven","image":"oven.jpg"}]},{"number":4,"step":"Spread the cheese-cream mixture over the chops and broil for about 5 minutes.","ingredients":[{"id":1041009,"name":"cheese","localizedName":"cheese","image":"cheddar-cheese.png"},{"id":0,"name":"spread","localizedName":"spread","image":""},{"id":1053,"name":"cream","localizedName":"cream","image":"fluid-cream.jpg"}],"equipment":[],"length":{"number":5,"unit":"minutes"}}]}]}
-  #       404:
-  #         description: "Not Found"   
+  #       400:
+  #         description: "Bad Request"
+
+  /generatePlan:
+    post:
+      tags: [Schedule]
+      parameters:
+        - in: header
+          name: token
+          descreption: token
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Success"
+          schema:
+            type: object
+            example: {"week": {"monday": {"meals": [ {"id": 661984,"imageType": "jpg","title": "Stuffed Breakfast Balls","readyInMinutes": 45,"servings": 6,"sourceUrl": "https://spoonacular.com/stuffed-breakfast-balls-661984"}, {"id": 776081,"imageType": "jpg","title": "One Pan Creamy Garlic Herb Chicken & Potatoes","readyInMinutes": 30,"servings": 4,"sourceUrl": "http://www.lecremedelacrumb.com/2016/06/one-pan-creamy-garlic-herb-chicken-potatoes.html"},{"id": 411343,"imageType": "jpg","title": "Creamy Poppy Seed Fettuccine","readyInMinutes": 25,"servings": 2,"sourceUrl": "http://www.tasteofhome.com/recipes/creamy-poppy-seed-fettuccine"}],"nutrients": {"calories": 1766.04,"protein": 72.19, "fat": 124.45,"carbohydrates": 92.55}},"tuesday": {"meals": [{"id": 1054447,"imageType": "jpg","title": "Keto Thumbprint Cookies – Low Carb","readyInMinutes": 28,"servings": 15,"sourceUrl": "https://www.ibreatheimhungry.com/keto-thumbprint-cookies-low-carb/"},{"id": 578820,"imageType": "jpg","title": "Creamy Lemon Chicken Pasta","readyInMinutes": 30,"servings": 6,"sourceUrl": "http://www.foodfanatic.com/recipes/creamy-lemon-chicken-pasta-recipe/"},{"id": 398736,"imageType": "jpg","title": "Family-Friendly Stuffed Cheeseburgers","readyInMinutes": 40,"servings": 6,"sourceUrl": "http://www.tasteofhome.com/recipes/family-friendly-stuffed-cheeseburgers"}],"nutrients": {"calories": 1766.29,"protein": 89.43,"fat": 97.76,"carbohydrates": 131.45 }}, "wednesday": {"meals": [{"id": 585397,"imageType": "jpg","title": "Caramel Cream Dulce de Leche Pie","readyInMinutes": 240,"servings": 8,"sourceUrl": "http://www.sippitysup.com/recipe/caramel-cream-dulce-de-leche-pie/"},{"id": 822316,"imageType": "jpg","title": "Baked Haddock with Cashew Cracker Crust","readyInMinutes": 25, "servings": 4,"sourceUrl": "http://www.afamilyfeast.com/baked-haddock-with-cashew-cracker-crust/"}, {"id": 106999,"imageType": "png","title": "Mother's Everyday Pimento Cheese","readyInMinutes": 300,"servings": 3,"sourceUrl": "http://www.epicurious.com/recipes/food/views/Mothers-Everyday-Pimento-Cheese-102560"} ],"nutrients": {"calories": 1767.43,"protein": 69.73, "fat": 156.58,"carbohydrates": 21.48 }},"thursday": {"meals": [{"id": 266178,"imageType": "jpg","title": "S'more Snack Treats","readyInMinutes": 55, "servings": 55,"sourceUrl": "http://www.Kraftrecipes.com/recipes/smore-snack-treats-56487.aspx"}, {"id": 1697535,"imageType": "jpg","title": "Panera Spicy Thai Salad","readyInMinutes": 20,"servings": 4,"sourceUrl": "https://spoonacular.com/panera-spicy-thai-salad-1697535"},{"id": 428933,"imageType": "jpg","title": "Kielbasa Tortellini Alfredo","readyInMinutes": 20,"servings": 4,"sourceUrl": "http://www.tasteofhome.com/Recipes/kielbasa-tortellini-alfredo"}],"nutrients": {"calories": 1766.58,"protein": 125.73,"fat": 105.71,"carbohydrates": 82.45}},"friday": {"meals": [{"id": 700263,"imageType": "jpg","title": "Snowball Cookies with Cranberries","readyInMinutes": 28,"servings": 36,"sourceUrl": "http://www.galonamission.com/snowball-cookies-with-cranberries/"},{"id": 567470,"imageType": "jpg","title": "Huevos Rancheros with Chorizo Refried Beans","readyInMinutes": 20,"servings": 4,"sourceUrl": "http://www.lifesambrosia.com/2010/09/huevos-rancheros-with-chorizo-refried-beans-recipe.html"},{"id": 390245,"imageType": "jpg", "title": "Easy Sausage & Ravioli","readyInMinutes": 25,"servings": 4,"sourceUrl": "http://www.tasteofhome.com/Recipes/easy-sausage---ravioli"}],"nutrients": {"calories": 1766.48,"protein": 72.41,"fat": 99.04,"carbohydrates": 144.25} },"saturday": {"meals": [{"id": 605441,"imageType": "jpg","title": "Almond Fairy Cakes with Candied Borage Flowers","readyInMinutes": 120,"servings": 36,"sourceUrl": "http://www.loveandoliveoil.com/2014/07/almond-fairy-cakes-with-candied-borage-flowers.html"},{"id": 742873,"imageType": "jpeg","title": "Fried Cheese Curds","readyInMinutes": 15,"servings": 4,"sourceUrl": "http://www.foodnetwork.com/recipes/amanda-freitag/fried-cheese-curds.html"},{"id": 903662,"imageType": "jpg","title": "Sassy Pants Creamy Macaroni and Cheese","readyInMinutes": 45,"servings": 4, "sourceUrl": "http://heatherlikesfood.com/sassy-pants-creamy-macaroni-cheese/" }],"nutrients": {"calories": 1765.76,"protein": 56.9,"fat": 113.81,"carbohydrates": 131.66} }, "sunday": {"meals": [{"id": 520899,"imageType": "jpg","title": "Cheese Pimiento Spread","readyInMinutes": 10,"servings": 3,"sourceUrl": "https://casaveneracion.com/cheese-pimiento-spread/"}, {"id": 407691,"imageType": "jpg","title": "Little Cheddar Meat Loaves","readyInMinutes": 30,"servings": 2,"sourceUrl": "http://www.tasteofhome.com/Recipes/little-cheddar-meat-loaves"}, {"id": 890002,"imageType": "jpg","title": "Fresh and Easy Vietnamese Noodle Salad","readyInMinutes": 45,"servings": 6,"sourceUrl": "http://www.foodiecrush.com/easy-vietnamese-noodle-salad/"}],"nutrients": {"calories": 1766.1,"protein": 87.82,"fat": 123.45,"carbohydrates": 79.54}}}}
+        400:
+          description: "Bad Request"
+        401:
+          description: "Invalid Token"
+  /recipes:
+    post:
+      tags: [Recipe Page]
+      parameters:
+        - in: header
+          name: token
+          descreption: token
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Success"
+          schema:
+            type: object
+            example: {"results":[{"id":716426,"title":"Cauliflower, Brown Rice, and Vegetable Fried Rice","image":"https://spoonacular.com/recipeImages/716426-312x231.jpg","imageType":"jpg"},{"id":715594,"title":"Homemade Garlic and Basil French Fries","image":"https://spoonacular.com/recipeImages/715594-312x231.jpg","imageType":"jpg"},{"id":715497,"title":"Berry Banana Breakfast Smoothie","image":"https://spoonacular.com/recipeImages/715497-312x231.jpg","imageType":"jpg"},{"id":644387,"title":"Garlicky Kale","image":"https://spoonacular.com/recipeImages/644387-312x231.jpg","imageType":"jpg"},{"id":716268,"title":"African Chicken Peanut Stew","image":"https://spoonacular.com/recipeImages/716268-312x231.jpg","imageType":"jpg"},{"id":716381,"title":"Nigerian Snail Stew","image":"https://spoonacular.com/recipeImages/716381-312x231.jpg","imageType":"jpg"},{"id":782601,"title":"Red Kidney Bean Jambalaya","image":"https://spoonacular.com/recipeImages/782601-312x231.jpg","imageType":"jpg"},{"id":794349,"title":"Broccoli and Chickpea Rice Salad","image":"https://spoonacular.com/recipeImages/794349-312x231.jpg","imageType":"jpg"},{"id":715446,"title":"Slow Cooker Beef Stew","image":"https://spoonacular.com/recipeImages/715446-312x231.jpg","imageType":"jpg"},{"id":715415,"title":"Red Lentil Soup with Chicken and Turnips","image":"https://spoonacular.com/recipeImages/715415-312x231.jpg","imageType":"jpg"},{"id":766453,"title":"Hummus and Za'atar","image":"https://spoonacular.com/recipeImages/766453-312x231.jpg","imageType":"jpg"},{"id":716627,"title":"Easy Homemade Rice and Beans","image":"https://spoonacular.com/recipeImages/716627-312x231.jpg","imageType":"jpg"},{"id":716408,"title":"Greek-Style Baked Fish: Fresh, Simple, and Delicious","image":"https://spoonacular.com/recipeImages/716408-312x231.jpg","imageType":"jpg"},{"id":795751,"title":"Chicken Fajita Stuffed Bell Pepper","image":"https://spoonacular.com/recipeImages/795751-312x231.jpg","imageType":"jpg"},{"id":640941,"title":"Crunchy Brussels Sprouts Side Dish","image":"https://spoonacular.com/recipeImages/640941-312x231.jpg","imageType":"jpg"},{"id":798400,"title":"Spicy Black-Eyed Pea Curry with Swiss Chard and Roasted Eggplant","image":"https://spoonacular.com/recipeImages/798400-312x231.jpg","imageType":"jpg"},{"id":756814,"title":"Powerhouse Almond Matcha Superfood Smoothie","image":"https://spoonacular.com/recipeImages/756814-312x231.jpg","imageType":"jpg"},{"id":729366,"title":"Plantain Salad","image":"https://spoonacular.com/recipeImages/729366-312x231.jpg","imageType":"jpg"},{"id":715769,"title":"Broccolini Quinoa Pilaf","image":"https://spoonacular.com/recipeImages/715769-312x231.jpg","imageType":"jpg"},{"id":782600,"title":"Quinoa Salad with Vegetables and Cashews","image":"https://spoonacular.com/recipeImages/782600-312x231.jpg","imageType":"jpg"},{"id":642605,"title":"Farro With Mushrooms and Asparagus","image":"https://spoonacular.com/recipeImages/642605-312x231.jpg","imageType":"jpg"},{"id":715540,"title":"Summer Berry Salad","image":"https://spoonacular.com/recipeImages/715540-312x231.jpg","imageType":"jpg"},{"id":636589,"title":"Butternut Squash Frittata","image":"https://spoonacular.com/recipeImages/636589-312x231.jpg","imageType":"jpg"},{"id":640062,"title":"Corn Avocado Salsa","image":"https://spoonacular.com/recipeImages/640062-312x231.jpg","imageType":"jpg"},{"id":715495,"title":"Turkey Tomato Cheese Pizza","image":"https://spoonacular.com/recipeImages/715495-312x231.jpg","imageType":"jpg"},{"id":715421,"title":"Cheesy Chicken Enchilada Quinoa Casserole","image":"https://spoonacular.com/recipeImages/715421-312x231.jpg","imageType":"jpg"},{"id":716432,"title":"Finger Foods: Frittata Muffins","image":"https://spoonacular.com/recipeImages/716432-312x231.jpg","imageType":"jpg"},{"id":716437,"title":"Chilled Cucumber Avocado Soup with Yogurt and Kefir","image":"https://spoonacular.com/recipeImages/716437-312x231.jpg","imageType":"jpg"},{"id":639535,"title":"Citrusy Pecan Garbanzo Couscous: A Salad For Cold Weather","image":"https://spoonacular.com/recipeImages/639535-312x231.jpg","imageType":"jpg"},{"id":652417,"title":"Moroccan chickpea and lentil stew","image":"https://spoonacular.com/recipeImages/652417-312x231.jpg","imageType":"jpg"}],"offset":0,"number":30,"totalResults":5219}
+        401:
+          description: "Invalid Token"
+
+  /recipeSearch:
+    post:
+      tags: [Recipe Page]
+      parameters:
+        - in: header
+          name: token
+          descreption: token
+          required: true
+          type: string
+        - in: body
+          name: Search and Filters
+          schema:
+            type: object
+            properties:
+              query:
+                type: string
+                example: "cheese"
+              diet:
+                type: string
+                example: "ketogenic/ vegetarian/ vegan/ paleo/ pescetarian"
+              maxCalories:
+                type: string
+                example: "1/2/.../800"
+              maxReadyTime:
+                type: string
+                example: "20"
+              intolerances:
+                type: string
+                example: "dairy/ egg/ gluten/ grain/ peanut/ seafood/ sesame/ shellfish/ soy/ sulfite/ treenut/ wheat"
+              type:
+                type: string
+                example: "breakfast/ main course/ snack"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            type: object
+            example: [{"id":641880,"title":"Easy Cheese Danish","calories":{"name":"Calories","amount":25.96,"unit":"kcal","percentOfDailyNeeds":1.3}},{"id":635297,"title":"Bleu Cheese Stuffed Wine Cherries With Honeycomb","calories":{"name":"Calories","amount":87.58,"unit":"kcal","percentOfDailyNeeds":4.38}},{"id":640489,"title":"Cream Cheese Cookies","calories":{"name":"Calories","amount":24.15,"unit":"kcal","percentOfDailyNeeds":1.21}},{"id":640508,"title":"Cream Cheese Stuffed Baby Bell Pepper Appetizer","calories":{"name":"Calories","amount":43.24,"unit":"kcal","percentOfDailyNeeds":2.16}},{"id":640513,"title":"Cream Cheese with Sun Dried Tomatoes and Pesto Pastry","calories":{"name":"Calories","amount":83.76,"unit":"kcal","percentOfDailyNeeds":4.19}},{"id":1697757,"title":"Crab Mac and Cheese","calories":{"name":"Calories","amount":499.46,"unit":"kcal","percentOfDailyNeeds":24.97}},{"id":1697541,"title":"Pasta With Feta Cheese And Asparagus","calories":{"name":"Calories","amount":804.13,"unit":"kcal","percentOfDailyNeeds":40.21}},{"id":647654,"title":"Hungarian Cottage-Cheese Biscuits (Túrós Pogácsa)","calories":{"name":"Calories","amount":82.29,"unit":"kcal","percentOfDailyNeeds":4.11}},{"id":645707,"title":"Grilled Figs With Blue Cheese and Citrus Honey","calories":{"name":"Calories","amount":28.97,"unit":"kcal","percentOfDailyNeeds":1.45}},{"id":632246,"title":"Alouette Crumbled Goat Cheese Provencal Mini Tacos","calories":{"name":"Calories","amount":10.36,"unit":"kcal","percentOfDailyNeeds":0.52}},{"id":1697591,"title":"Buffalo Chicken Grilled Cheese","calories":{"name":"Calories","amount":417.59,"unit":"kcal","percentOfDailyNeeds":20.88}},{"id":638288,"title":"Chicken Roll-Ups With Feta Cheese and Arugula","calories":{"name":"Calories","amount":18.33,"unit":"kcal","percentOfDailyNeeds":0.92}},{"id":664912,"title":"Waldorf Salad With Fresh Goat Cheese","calories":{"name":"Calories","amount":95.94,"unit":"kcal","percentOfDailyNeeds":4.8}},{"id":655477,"title":"Peas And Tarragon With Fresh Goat Cheese","calories":{"name":"Calories","amount":37.6,"unit":"kcal","percentOfDailyNeeds":1.88}},{"id":664585,"title":"Vegetable Quiche Made With Fresh Tomatoes, Spinach, Basil and Goat Cheese","calories":{"name":"Calories","amount":70.9,"unit":"kcal","percentOfDailyNeeds":3.54}},{"id":1697803,"title":"Pumpkin Cheesecake","calories":{"name":"Calories","amount":512.86,"unit":"kcal","percentOfDailyNeeds":25.64}},{"id":1697811,"title":"Mint Chocolate Cheesecake","calories":{"name":"Calories","amount":790.99,"unit":"kcal","percentOfDailyNeeds":39.55}},{"id":1697685,"title":"Lemon Raspberry Cheesecake Bars","calories":{"name":"Calories","amount":339.63,"unit":"kcal","percentOfDailyNeeds":16.98}},{"id":157107,"title":"Skinny Cheesecake Brownie Bites","calories":{"name":"Calories","amount":77.21,"unit":"kcal","percentOfDailyNeeds":3.86}},{"id":634798,"title":"Beet Slaw","calories":{"name":"Calories","amount":106.1,"unit":"kcal","percentOfDailyNeeds":5.3}},{"id":59431,"title":"Berry Trifle","calories":{"name":"Calories","amount":81.01,"unit":"kcal","percentOfDailyNeeds":4.05}},{"id":664932,"title":"Walnut Pesto","calories":{"name":"Calories","amount":54.74,"unit":"kcal","percentOfDailyNeeds":2.74}},{"id":640323,"title":"Crab Wontons","calories":{"name":"Calories","amount":69.56,"unit":"kcal","percentOfDailyNeeds":3.48}},{"id":636958,"title":"Caprese Sticks","calories":{"name":"Calories","amount":33.06,"unit":"kcal","percentOfDailyNeeds":1.65}},{"id":633852,"title":"baked tomatoes","calories":{"name":"Calories","amount":62.69,"unit":"kcal","percentOfDailyNeeds":3.13}},{"id":1697651,"title":"Caesar Dressing","calories":{"name":"Calories","amount":812.15,"unit":"kcal","percentOfDailyNeeds":40.61}},{"id":654735,"title":"Party Rice Balls","calories":{"name":"Calories","amount":68.37,"unit":"kcal","percentOfDailyNeeds":3.42}},{"id":636769,"title":"Mini Ham Omelets","calories":{"name":"Calories","amount":90.86,"unit":"kcal","percentOfDailyNeeds":4.54}},{"id":1697579,"title":"Rigatoni al Forno","calories":{"name":"Calories","amount":941.3,"unit":"kcal","percentOfDailyNeeds":47.07}},{"id":645092,"title":"Gougeres Appetizer","calories":{"name":"Calories","amount":50.57,"unit":"kcal","percentOfDailyNeeds":2.53}}]
+
+  /selectRecipe:
+    post:
+      tags: [Recipe/Schedule Page]
+      parameters:
+        # - in: header
+        #   name: token
+        #   descreption: token
+        #   required: true
+        #   type: string
+        - in: body
+          name: Recipe's ID
+          schema:
+            type: object
+            required: 
+              - id
+            properties:
+              id:
+                type: number
+      responses:
+        200:
+          description: "Success"
+          schema:
+            type: object
+            example: {"title":"Cheese Pork Chops","image":"https://spoonacular.com/recipeImages/637569-556x370.jpg","servings":4,"readyInMinutes":{"preparationTime":-1,"cookingTime":-1},"dairyFree":false,"diets":["gluten free","primal"],"ingredients":[{"id":1002046,"aisle":"Condiments","image":"dijon-mustard.jpg","consistency":"LIQUID","name":"dijon mustard","nameClean":"creole mustard","original":"2 tablespoons Dijon mustard","originalName":"Dijon mustard","amount":2,"unit":"tablespoons","meta":[],"measures":{"us":{"amount":2,"unitShort":"Tbsps","unitLong":"Tbsps"},"metric":{"amount":2,"unitShort":"Tbsps","unitLong":"Tbsps"}}},{"id":1023,"aisle":"Cheese","image":"gruyere.jpg","consistency":"SOLID","name":"gruyere cheese","nameClean":"gruyere","original":"½ cup gruyere cheese, shredded","originalName":"gruyere cheese, shredded","amount":0.5,"unit":"cup","meta":["shredded"],"measures":{"us":{"amount":0.5,"unitShort":"cups","unitLong":"cups"},"metric":{"amount":118.294,"unitShort":"ml","unitLong":"milliliters"}}},{"id":1053,"aisle":"Milk, Eggs, Other Dairy","image":"fluid-cream.jpg","consistency":"LIQUID","name":"heavy cream","nameClean":"cream","original":"½ cup heavy cream","originalName":"heavy cream","amount":0.5,"unit":"cup","meta":[],"measures":{"us":{"amount":0.5,"unitShort":"cups","unitLong":"cups"},"metric":{"amount":118.294,"unitShort":"ml","unitLong":"milliliters"}}},{"id":4053,"aisle":"Oil, Vinegar, Salad Dressing","image":"olive-oil.jpg","consistency":"LIQUID","name":"olive oil","nameClean":"olive oil","original":"1 teaspoon Olive oil","originalName":"Olive oil","amount":1,"unit":"teaspoon","meta":[],"measures":{"us":{"amount":1,"unitShort":"tsp","unitLong":"teaspoon"},"metric":{"amount":1,"unitShort":"tsp","unitLong":"teaspoon"}}},{"id":10010062,"aisle":"Meat","image":"pork-chops.jpg","consistency":"SOLID","name":"pork chops","nameClean":"pork chops","original":"4 pork chops","originalName":"pork chops","amount":4,"unit":"","meta":[],"measures":{"us":{"amount":4,"unitShort":"","unitLong":""},"metric":{"amount":4,"unitShort":"","unitLong":""}}},{"id":1102047,"aisle":"Spices and Seasonings","image":"salt-and-pepper.jpg","consistency":"SOLID","name":"salt and pepper","nameClean":"salt and pepper","original":"Salt and pepper","originalName":"Salt and pepper","amount":4,"unit":"servings","meta":[],"measures":{"us":{"amount":4,"unitShort":"servings","unitLong":"servings"},"metric":{"amount":4,"unitShort":"servings","unitLong":"servings"}}},{"id":1145,"aisle":"Milk, Eggs, Other Dairy","image":"butter-sliced.jpg","consistency":"SOLID","name":"unsalted butter","nameClean":"unsalted butter","original":"1 tablespoon unsalted butter","originalName":"unsalted butter","amount":1,"unit":"tablespoon","meta":["unsalted"],"measures":{"us":{"amount":1,"unitShort":"Tbsp","unitLong":"Tbsp"},"metric":{"amount":1,"unitShort":"Tbsp","unitLong":"Tbsp"}}}],"nutrients":[{"name":"Calories","amount":415.51,"unit":"kcal","percentOfDailyNeeds":20.78},{"name":"Fat","amount":29.46,"unit":"g","percentOfDailyNeeds":45.32},{"name":"Saturated Fat","amount":15.2,"unit":"g","percentOfDailyNeeds":94.99},{"name":"Carbohydrates","amount":1.3,"unit":"g","percentOfDailyNeeds":0.43},{"name":"Net Carbohydrates","amount":0.98,"unit":"g","percentOfDailyNeeds":0.36},{"name":"Sugar","amount":1.04,"unit":"g","percentOfDailyNeeds":1.15},{"name":"Cholesterol","amount":149.07,"unit":"mg","percentOfDailyNeeds":49.69},{"name":"Sodium","amount":466.86,"unit":"mg","percentOfDailyNeeds":20.3},{"name":"Protein","amount":34.99,"unit":"g","percentOfDailyNeeds":69.97},{"name":"Selenium","amount":50.22,"unit":"µg","percentOfDailyNeeds":71.75},{"name":"Vitamin B1","amount":0.92,"unit":"mg","percentOfDailyNeeds":61.6},{"name":"Vitamin B3","amount":10.78,"unit":"mg","percentOfDailyNeeds":53.92},{"name":"Vitamin B6","amount":1,"unit":"mg","percentOfDailyNeeds":50.09},{"name":"Phosphorus","amount":428.86,"unit":"mg","percentOfDailyNeeds":42.89},{"name":"Vitamin B2","amount":0.36,"unit":"mg","percentOfDailyNeeds":20.94},{"name":"Calcium","amount":201.36,"unit":"mg","percentOfDailyNeeds":20.14},{"name":"Zinc","amount":2.84,"unit":"mg","percentOfDailyNeeds":18.96},{"name":"Vitamin B12","amount":1.03,"unit":"µg","percentOfDailyNeeds":17.13},{"name":"Potassium","amount":553.59,"unit":"mg","percentOfDailyNeeds":15.82},{"name":"Vitamin A","amount":691.9,"unit":"IU","percentOfDailyNeeds":13.84},{"name":"Vitamin B5","amount":1.17,"unit":"mg","percentOfDailyNeeds":11.69},{"name":"Magnesium","amount":46.54,"unit":"mg","percentOfDailyNeeds":11.63},{"name":"Vitamin D","amount":1.16,"unit":"µg","percentOfDailyNeeds":7.76},{"name":"Vitamin E","amount":0.75,"unit":"mg","percentOfDailyNeeds":4.97},{"name":"Iron","amount":0.86,"unit":"mg","percentOfDailyNeeds":4.75},{"name":"Copper","amount":0.09,"unit":"mg","percentOfDailyNeeds":4.49},{"name":"Vitamin K","amount":2.36,"unit":"µg","percentOfDailyNeeds":2.24},{"name":"Manganese","amount":0.04,"unit":"mg","percentOfDailyNeeds":2.22},{"name":"Fiber","amount":0.32,"unit":"g","percentOfDailyNeeds":1.29}],"calorieBreakdown":{"percentProtein":34.11,"percentFat":64.62,"percentCarbs":1.27},"weightPerServing":{"amount":193,"unit":"g"},"summary":"Cheese Pork Chops is a <b>gluten free and primal</b> main course. This recipe serves 4 and costs $2.35 per serving. One serving contains <b>417 calories</b>, <b>35g of protein</b>, and <b>30g of fat</b>. This recipe from Foodista has 7 fans. A mixture of dijon mustard, gruyere cheese, salt and pepper, and a handful of other ingredients are all it takes to make this recipe so scrumptious. To use up the salt and pepper you could follow this main course with the <a href=\"https://spoonacular.com/recipes/dr-pepper-cake-with-flour-cooked-frosting-539165\">Dr. Pepper Cake with Flour Cooked Frosting</a> as a dessert. From preparation to the plate, this recipe takes about <b>30 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 60%</b>. This score is solid. Try <a href=\"https://spoonacular.com/recipes/cream-cheese-pork-chops-397985\">Cream Cheese Pork Chops</a>, <a href=\"https://spoonacular.com/recipes/cheese-onion-pork-chops-222073\">Cheese & onion pork chops</a>, and <a href=\"https://spoonacular.com/recipes/pork-chops-and-cheese-potatoes-121722\">Pork Chops and Cheese Potatoes</a> for similar recipes.","instruction":[{"name":"","steps":[{"number":1,"step":"In a heavy bottom skillet melt the butter with the olive oil. Saut` the pork chops over medium high 3 minutes on each sided. Lower the heat to medium and cook for another 5 to 6 minutes for side.Salt and pepper to taste.Meanwhile turn on the broil.","ingredients":[{"id":1102047,"name":"salt and pepper","localizedName":"salt and pepper","image":"salt-and-pepper.jpg"},{"id":10010062,"name":"pork chops","localizedName":"pork chops","image":"pork-chops.jpg"},{"id":4053,"name":"olive oil","localizedName":"olive oil","image":"olive-oil.jpg"},{"id":1001,"name":"butter","localizedName":"butter","image":"butter-sliced.jpg"}],"equipment":[{"id":404645,"name":"frying pan","localizedName":"frying pan","image":"pan.png"}],"length":{"number":8,"unit":"minutes"}},{"number":2,"step":"Mix together in a bowl the heavy cream, mustard and the cheese.","ingredients":[{"id":1053,"name":"heavy cream","localizedName":"heavy cream","image":"fluid-cream.jpg"},{"id":2046,"name":"mustard","localizedName":"mustard","image":"regular-mustard.jpg"},{"id":1041009,"name":"cheese","localizedName":"cheese","image":"cheddar-cheese.png"}],"equipment":[{"id":404783,"name":"bowl","localizedName":"bowl","image":"bowl.jpg"}]},{"number":3,"step":"Remove the chops from the stove and place them in a oven proof dish.","ingredients":[],"equipment":[{"id":404794,"name":"stove","localizedName":"stove","image":"oven.jpg"},{"id":404784,"name":"oven","localizedName":"oven","image":"oven.jpg"}]},{"number":4,"step":"Spread the cheese-cream mixture over the chops and broil for about 5 minutes.","ingredients":[{"id":1041009,"name":"cheese","localizedName":"cheese","image":"cheddar-cheese.png"},{"id":0,"name":"spread","localizedName":"spread","image":""},{"id":1053,"name":"cream","localizedName":"cream","image":"fluid-cream.jpg"}],"equipment":[],"length":{"number":5,"unit":"minutes"}}]}]}
+        404:
+          description: "Not Found"   
                     
   /createCustomPlate:
     post:
@@ -474,5 +479,7 @@ paths:
             example: 
         401:
           description: "Invalid Token"
+
+  
 
                       

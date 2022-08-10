@@ -27,6 +27,12 @@ app.use('/foodtracker/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerJSDocs)
 const Recipe = require('./model/calorie');
 const Calorie = require('./model/track')
 
+app.post('/search', async(req, res) => {
+    Recipe.find({ title: { $regex: /'egg'$/ } }).then(resp => {
+        res.send(resp.data)
+    })
+
+})
 
 app.post('/fetch', async(req, res) => {
     Recipe.find({},{_id:0,id:1},function(error, docs){

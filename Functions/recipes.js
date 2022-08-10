@@ -1,4 +1,5 @@
 const axios = require('axios')
+const { macros } = require('fitness-calculator')
 apiKey = 'b677245ba7e34e34b921ca7303c18a45'
 
 exports.recipes = async (req, res) => {
@@ -8,31 +9,44 @@ exports.recipes = async (req, res) => {
 }
 
 
-exports.rescipeSearch = async(req, res) => {
-    
+exports.recipeSearch = async(req, res) => {
+    let parammmmms = {}
     let {query, diet, maxCalories, maxReadyTime, intolerances, type}=req.body
     let response = []
-    query = `=${query}`
-    diet = `=${diet}`
-    // maxCalories = `=${maxCalories}`
-    intolerances = `=${intolerances}`
-    type = `=${type}`
-    // maxReadyTime = "" + maxReadyTime
-    // maxReadyTime = `=${maxReadyTime}`
-    let url = ` https://api.spoonacular.com/recipes/complexSearch?query${query}&diet${diet}&number=30&maxReadyTime${maxReadyTime}&intolerances${intolerances}&type${type}&maxCalories${maxCalories}`
-        axios.get(url
-        +"&addRecipeNutrition=true&instructionsRequired=false&addRecipeInformation=false&fillIngredients=false&apiKey="+apiKey).then(resp => {
-            
-            for(let i=0; i<30; i++){
+    
+    parammmmms = {
+        addRecipeNutrition : true,
+        instructionsRequired: false,
+        addRecipeInformation: false,
+        fillIngredients: false,
+        apiKey: apiKey,
+    }
+
+    query != undefined? parammmmms['query'] = query : void 0
+    diet != undefined? parammmmms['diet'] = diet : void 0
+    maxCalories != undefined? parammmmms['maxCalories'] = maxCalories : void 0
+    maxReadyTime != undefined? parammmmms['maxReadyTime'] = maxReadyTime : void 0
+    intolerances != undefined? parammmmms['intolerances'] = intolerances : void 0
+    type != undefined? parammmmms['type'] = type : void 0
+
+    axios.get('https://api.spoonacular.com/recipes/complexSearch', { params: parammmmms }).then(resp => {
+            if (resp.data.totalResults == 0){
+                res.sendStatus(404)
+            }
+            else{for(let i=0; i<`${resp.data.number}`; i++){
             response.push({
                 id:resp.data.results[i].id,
                 title:resp.data.results[i].title,
                 calories:resp.data.results[i].nutrition.nutrients[0]
             })
             }
-            res.send(response)})
-   
-   
+            console.log(parammmmms)
+            res.send(response)}
+
+        }
+        
+            )
+            
 }
 
 exports.selectRecipe = async(req, res) => {

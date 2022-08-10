@@ -80,7 +80,8 @@ exports.forgotPasswordCode = async (req, res) => {
               console.log(error);
               res.status(404)
           } else {
-              sendEmail(email, "Password reset code", JSON.stringify(randomDigit));
+              const emailBody = "Hello our Food Tracker friend!\nWe've recived a request to reset your Food Tracker password. Please eneter the following code in the app:\n"
+              sendEmail(email, "Food Tracker Password Reset", emailBody + JSON.stringify(randomDigit));
               res.status(200).json({
                   message: "Digit has been sent successfully"
               });
@@ -178,31 +179,36 @@ exports.login =  async (req, res) => {
 
 };
 
-exports.userConnection = async(req, res) => {
-  const token = req.header['x-access-token']
+// exports.userConnection = async(req, res) => {
+//   const token = req.headers['token']
 
-  User.findOne({token: token}, function(error, user){
-    if (error){
-      res.sendStatus(404)
-    }
-    else{
-      try{axios.post('https://api.spoonacular.com/users/connect?apiKey=' + apiKey, {
-        "username": user.username,
-        "firstName": user.firstName,
-        "lastName": user.lastname,
-        "email": user.email
-      }).then(resp => {
-        res.sendStatus(200)
-    })}catch(error){
-      res.sendStatus(400)
-    }}
-  })
-}
+//   User.findOne({token: token}, function(error, user){
+//     if (error){
+//       res.sendStatus(404)
+//     }
+//     else{
+//       console.log(user.firstname)
+//     //   try{axios.post('https://api.spoonacular.com/users/connect?apiKey=' + apiKey, {
+//     //     "username": user[0].username,
+//     //     "firstName": user[0].firstName,
+//     //     "lastName": user[0].lastname,
+//     //     "email": user[0].email
+//     //   }).then(resp => {
+//     //     res.send(resp.data)
+//     //     // res.sendStatus(200)
+//     // })}catch(error){
+//     //   res.sendStatus(400)
+//     // }}
+//   }})
+// }
 
 exports.logout = async(req, res) => {
-  const token = req.header['x-access-token']
-  try{User.findOneAndUpdate({token: token},{tolen: " "}, function(error, doc){
-    res.send(200)
+  const token = req.headers['token']
+  const filter = {token: token}
+  try{  User.findOneAndUpdate(filter, 
+    {$set:{token: "1"}},
+    function (error, success){
+      console.log(success)
   })} catch(error){
     res.sendStatus(500)
   }

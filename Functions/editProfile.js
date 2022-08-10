@@ -1,7 +1,7 @@
 const User = require('../model/user')
 
 exports.editProfile = async(req, res) => {
-    const {token} = req.header["token"]
+    const token = req.headers['token']
     const {firstName, lastName, gender, height, weight, diet, age} = req.body
     User.findOneAndUpdate({token: token}, {
         firstName,
@@ -17,7 +17,7 @@ exports.editProfile = async(req, res) => {
 }
 
 exports.changingDailyCalorieNeed = async(req, res) => {
-    const {token} = req.header["token"]
+    const token = req.headers['token']
     const{dailyCalorieNeed} = req.body
     User.findOneAndUpdate({token: token}, {
         dailyCalorieNeed
