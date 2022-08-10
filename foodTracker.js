@@ -20,7 +20,7 @@ db.on('error', (error) => {
 
 app.use(express.json());
 
-app.use("", require("./Routes/routes"))
+app.use("", require("./routes/routes"))
 app.use('/foodtracker/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerJSDocs))
 
 
