@@ -209,6 +209,7 @@ exports.logout = async(req, res) => {
     {$set:{token: "1"}},
     function (error, success){
       console.log(success)
+      res.sendStatus(200)
   })} catch(error){
     res.sendStatus(500)
   }
