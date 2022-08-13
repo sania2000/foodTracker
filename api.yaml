@@ -2,7 +2,7 @@ swagger: "2.0"
 info: 
   title: Food Tracker API
 paths:
-  /reccomendingCalorie:
+  /foodtracker/reccomendingCalorie:
     post:
       tags: [On Boarding]
       parameters:
@@ -38,7 +38,7 @@ paths:
         400:
           description: "Bad Request"
 
-  /signup:
+  /foodtracker/signup:
     post:
       tags: [On Boarding]
       parameters:
@@ -98,7 +98,7 @@ paths:
             type: object
             example: {"message":"User Already Exist. Please Login"}
 
-  /forgotPasswordCode:
+  /foodtracker/forgotPasswordCode:
     post:
       tags: [Forgot Password]
       parameters:
@@ -120,7 +120,7 @@ paths:
         404:
           description: "Not Found"
   
-  /checkDigits:
+  /foodtracker/checkDigits:
     post:
       tags: [Forgot Password]
       parameters:
@@ -149,7 +149,7 @@ paths:
             type: object
             example: {message: '"email" and/ or "digit" is not valid!'}
     
-  /resetPassword:
+  /foodtracker/resetPassword:
     post:
       tags: [Forgot Password]
       parameters:
@@ -182,7 +182,7 @@ paths:
             type: object
             example: {message: '"email" is invalid'}
 
-  /login:
+  /foodtracker/login:
     post:
       tags: [On Boarding]
       parameters:
@@ -224,7 +224,7 @@ paths:
   #       400:
   #         description: "Bad Request"
 
-  /logout:
+  /foodtracker/logout:
     post:
       tags: [Log Out]
       parameters:
@@ -265,7 +265,7 @@ paths:
   #       400:
   #         description: "Bad Request"
 
-  /generatePlan:
+  /foodtracker/generatePlan:
     post:
       tags: [Schedule]
       parameters:
@@ -284,7 +284,7 @@ paths:
           description: "Bad Request"
         401:
           description: "Invalid Token"
-  /recipes:
+  /foodtracker/recipes:
     post:
       tags: [Recipe Page]
       parameters:
@@ -302,7 +302,7 @@ paths:
         401:
           description: "Invalid Token"
 
-  /recipeSearch:
+  /foodtracker/recipeSearch:
     post:
       tags: [Recipe Page]
       parameters:
@@ -341,7 +341,7 @@ paths:
             type: object
             example: [{"id":641880,"title":"Easy Cheese Danish","calories":{"name":"Calories","amount":25.96,"unit":"kcal","percentOfDailyNeeds":1.3}},{"id":635297,"title":"Bleu Cheese Stuffed Wine Cherries With Honeycomb","calories":{"name":"Calories","amount":87.58,"unit":"kcal","percentOfDailyNeeds":4.38}},{"id":640489,"title":"Cream Cheese Cookies","calories":{"name":"Calories","amount":24.15,"unit":"kcal","percentOfDailyNeeds":1.21}},{"id":640508,"title":"Cream Cheese Stuffed Baby Bell Pepper Appetizer","calories":{"name":"Calories","amount":43.24,"unit":"kcal","percentOfDailyNeeds":2.16}},{"id":640513,"title":"Cream Cheese with Sun Dried Tomatoes and Pesto Pastry","calories":{"name":"Calories","amount":83.76,"unit":"kcal","percentOfDailyNeeds":4.19}},{"id":1697757,"title":"Crab Mac and Cheese","calories":{"name":"Calories","amount":499.46,"unit":"kcal","percentOfDailyNeeds":24.97}},{"id":1697541,"title":"Pasta With Feta Cheese And Asparagus","calories":{"name":"Calories","amount":804.13,"unit":"kcal","percentOfDailyNeeds":40.21}},{"id":647654,"title":"Hungarian Cottage-Cheese Biscuits (Túrós Pogácsa)","calories":{"name":"Calories","amount":82.29,"unit":"kcal","percentOfDailyNeeds":4.11}},{"id":645707,"title":"Grilled Figs With Blue Cheese and Citrus Honey","calories":{"name":"Calories","amount":28.97,"unit":"kcal","percentOfDailyNeeds":1.45}},{"id":632246,"title":"Alouette Crumbled Goat Cheese Provencal Mini Tacos","calories":{"name":"Calories","amount":10.36,"unit":"kcal","percentOfDailyNeeds":0.52}},{"id":1697591,"title":"Buffalo Chicken Grilled Cheese","calories":{"name":"Calories","amount":417.59,"unit":"kcal","percentOfDailyNeeds":20.88}},{"id":638288,"title":"Chicken Roll-Ups With Feta Cheese and Arugula","calories":{"name":"Calories","amount":18.33,"unit":"kcal","percentOfDailyNeeds":0.92}},{"id":664912,"title":"Waldorf Salad With Fresh Goat Cheese","calories":{"name":"Calories","amount":95.94,"unit":"kcal","percentOfDailyNeeds":4.8}},{"id":655477,"title":"Peas And Tarragon With Fresh Goat Cheese","calories":{"name":"Calories","amount":37.6,"unit":"kcal","percentOfDailyNeeds":1.88}},{"id":664585,"title":"Vegetable Quiche Made With Fresh Tomatoes, Spinach, Basil and Goat Cheese","calories":{"name":"Calories","amount":70.9,"unit":"kcal","percentOfDailyNeeds":3.54}},{"id":1697803,"title":"Pumpkin Cheesecake","calories":{"name":"Calories","amount":512.86,"unit":"kcal","percentOfDailyNeeds":25.64}},{"id":1697811,"title":"Mint Chocolate Cheesecake","calories":{"name":"Calories","amount":790.99,"unit":"kcal","percentOfDailyNeeds":39.55}},{"id":1697685,"title":"Lemon Raspberry Cheesecake Bars","calories":{"name":"Calories","amount":339.63,"unit":"kcal","percentOfDailyNeeds":16.98}},{"id":157107,"title":"Skinny Cheesecake Brownie Bites","calories":{"name":"Calories","amount":77.21,"unit":"kcal","percentOfDailyNeeds":3.86}},{"id":634798,"title":"Beet Slaw","calories":{"name":"Calories","amount":106.1,"unit":"kcal","percentOfDailyNeeds":5.3}},{"id":59431,"title":"Berry Trifle","calories":{"name":"Calories","amount":81.01,"unit":"kcal","percentOfDailyNeeds":4.05}},{"id":664932,"title":"Walnut Pesto","calories":{"name":"Calories","amount":54.74,"unit":"kcal","percentOfDailyNeeds":2.74}},{"id":640323,"title":"Crab Wontons","calories":{"name":"Calories","amount":69.56,"unit":"kcal","percentOfDailyNeeds":3.48}},{"id":636958,"title":"Caprese Sticks","calories":{"name":"Calories","amount":33.06,"unit":"kcal","percentOfDailyNeeds":1.65}},{"id":633852,"title":"baked tomatoes","calories":{"name":"Calories","amount":62.69,"unit":"kcal","percentOfDailyNeeds":3.13}},{"id":1697651,"title":"Caesar Dressing","calories":{"name":"Calories","amount":812.15,"unit":"kcal","percentOfDailyNeeds":40.61}},{"id":654735,"title":"Party Rice Balls","calories":{"name":"Calories","amount":68.37,"unit":"kcal","percentOfDailyNeeds":3.42}},{"id":636769,"title":"Mini Ham Omelets","calories":{"name":"Calories","amount":90.86,"unit":"kcal","percentOfDailyNeeds":4.54}},{"id":1697579,"title":"Rigatoni al Forno","calories":{"name":"Calories","amount":941.3,"unit":"kcal","percentOfDailyNeeds":47.07}},{"id":645092,"title":"Gougeres Appetizer","calories":{"name":"Calories","amount":50.57,"unit":"kcal","percentOfDailyNeeds":2.53}}]
 
-  /selectRecipe:
+  /foodtracker/selectRecipe:
     post:
       tags: [Recipe/Schedule Page]
       parameters:
@@ -368,7 +368,7 @@ paths:
         404:
           description: "Not Found"   
                     
-  /createCustomPlate:
+  /foodtracker/createCustomPlate:
     post:
       tags: [Custom Plate]
       parameters:
@@ -397,7 +397,7 @@ paths:
           description: "Not Found"
         401:
           description: "Invalid Token"
-  /selectIngredient:
+  /foodtracker/selectIngredient:
     post:
       tags: [Custom Plate]
       parameters:
@@ -428,7 +428,7 @@ paths:
         401:
           description: "Invalid Token"
               
-  /saveCustomPlate:
+  /foodtracker/saveCustomPlate:
     post:
       tags: [Custom Plate]
       parameters:
@@ -462,7 +462,7 @@ paths:
           description: "Bad Request"
         401:
           description: "Invalid Token"
-  /platesList:
+  /foodtracker/platesList:
     get:
       tags: [Custom Plate]
       parameters:
