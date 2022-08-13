@@ -285,7 +285,7 @@ paths:
         401:
           description: "Invalid Token"
   /foodtracker/recipes:
-    post:
+    get:
       tags: [Recipe Page]
       parameters:
         - in: header
@@ -345,11 +345,11 @@ paths:
     post:
       tags: [Recipe/Schedule Page]
       parameters:
-        # - in: header
-        #   name: token
-        #   descreption: token
-        #   required: true
-        #   type: string
+        - in: header
+          name: token
+          descreption: token
+          required: true
+          type: string
         - in: body
           name: Recipe's ID
           schema:
