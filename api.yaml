@@ -84,7 +84,7 @@ paths:
         200:
           description: "Success"
           schema:
-            type: string
+            type: object
             example: {"message":"signed up successfully", "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmU1ODc0ZWVjNjViNDFhMjRjZWQ2NGQiLCJpYXQiOjE2NTkyMDk1NTB9.BXoa3_Axxutjb37JOB_n0jrxroW1GAm-bcndxc1W_Gk"}
         400:
           description: "Bad Request"
@@ -198,7 +198,7 @@ paths:
         200:
           description: "Success"
           schema:
-            type: string
+            type: object
             example: {"message":"logged in successfully", "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmU1ODc0ZWVjNjViNDFhMjRjZWQ2NGQiLCJpYXQiOjE2NTkyMDk1NTB9.BXoa3_Axxutjb37JOB_n0jrxroW1GAm-bcndxc1W_Gk"}
         400:
           description: "Bad Request"
@@ -231,6 +231,9 @@ paths:
       responses:
         200:
           description: "Success"
+          schema:
+            type: object
+            example: {"message": "logged out successfully"}
         500:
           description: "Internal Server Error"
   # /dailyCalorie:

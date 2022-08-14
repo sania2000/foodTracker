@@ -213,7 +213,11 @@ exports.logout = async(req, res) => {
   try{  User.findOneAndUpdate(filter, 
     {$set:{token: "1"}},
     function (error, success){
-      res.sendStatus(200)
+      res.status(200).json(
+        {
+          message:"logged out successfully"
+        }
+      )
   })} catch(error){
     res.sendStatus(500)
   }
