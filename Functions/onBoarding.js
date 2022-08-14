@@ -10,7 +10,7 @@ const jwtSecret =
   apiKey = '5a7d5e15a2db4b15b3b2ed318b1c9f19'
 
 exports.onBoarding = async(req, res) => {
-    const {gender, age, activity, weight, height, diet, firstname, lastname,
+    const {gender, age, activity, weight, height, diet, firstname,
     email, password, dailyCalorieNeed} = req.body
 
     const oldUser = await User.findOne({ email });
@@ -20,7 +20,7 @@ exports.onBoarding = async(req, res) => {
       });
     }
 
-    if (!(email && password && firstname && lastname)) {
+    if (!(email && password && firstname)) {
       res.status(400).send("All input is required");
     }
 
@@ -32,7 +32,6 @@ exports.onBoarding = async(req, res) => {
         height,
         activity,
         firstname,
-        lastname,
         email,
         password: encryptedPassword,
         diet,
@@ -43,10 +42,13 @@ exports.onBoarding = async(req, res) => {
         jwtSecret,
       );
         user.token = token
-        res.header("access-token", token)
+        // res.header("access-token", token)
         user.save()
         console.log('saved')
-        res.sendStatus(200)
+        res.status(200).json({
+          message:"signed up successfully",
+          token: token
+        })
     }).catch((error) => {
       console.log(error)
         res.status(400).json(
@@ -166,8 +168,11 @@ exports.login =  async (req, res) => {
       user.token = token;
       user.save()
       // user
-      res.header("access-token", token)
-      res.sendStatus(200);
+      // res.header("access-token", token)
+      res.status(200).json({
+        message:"logged in successfully",
+        token: token
+      })
     } else{
       res.sendStatus(400)
     }

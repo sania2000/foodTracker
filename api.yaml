@@ -54,7 +54,6 @@ paths:
             - height
             - diet
             - firstname
-            - lastname
             - email
             - password
             - dailyCalorieNeed
@@ -75,8 +74,6 @@ paths:
                 type: string
               firstname:
                 type: string
-              lastname:
-                type: string
               email:
                 type: string
               password:
@@ -86,10 +83,9 @@ paths:
       responses:
         200:
           description: "Success"
-          headers:
-            access-token:
-              type: string
-              example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmU1ODc0ZWVjNjViNDFhMjRjZWQ2NGQiLCJpYXQiOjE2NTkyMDk1NTB9.BXoa3_Axxutjb37JOB_n0jrxroW1GAm-bcndxc1W_Gk"
+          schema:
+            type: string
+            example: {"message":"signed up successfully", "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmU1ODc0ZWVjNjViNDFhMjRjZWQ2NGQiLCJpYXQiOjE2NTkyMDk1NTB9.BXoa3_Axxutjb37JOB_n0jrxroW1GAm-bcndxc1W_Gk"}
         400:
           description: "Bad Request"
         409:
@@ -201,10 +197,9 @@ paths:
       responses:
         200:
           description: "Success"
-          headers:
-            access-token:
-              type: string
-              example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmU1ODc0ZWVjNjViNDFhMjRjZWQ2NGQiLCJpYXQiOjE2NTkyMDk1NTB9.BXoa3_Axxutjb37JOB_n0jrxroW1GAm-bcndxc1W_Gk"
+          schema:
+            type: string
+            example: {"message":"logged in successfully", "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmU1ODc0ZWVjNjViNDFhMjRjZWQ2NGQiLCJpYXQiOjE2NTkyMDk1NTB9.BXoa3_Axxutjb37JOB_n0jrxroW1GAm-bcndxc1W_Gk"}
         400:
           description: "Bad Request"
   # /userConnection:
