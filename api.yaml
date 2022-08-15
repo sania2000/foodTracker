@@ -115,8 +115,11 @@ paths:
             example: {message: "Digit has been sent successfully"}
         404:
           description: "Not Found"
+          schema:
+            type: object
+            example: {message: "email is invalid/ user not found"}
   
-  /foodtracker/checkDigits:
+  /foodtracker/checkDigits/{digit}:
     post:
       tags: [Forgot Password]
       parameters:
@@ -143,7 +146,7 @@ paths:
           description: "Not Found"
           schema:
             type: object
-            example: {message: '"email" and/ or "digit" is not valid!'}
+            example: {message: 'email/code is invalid'}
     
   /foodtracker/resetPassword:
     post:

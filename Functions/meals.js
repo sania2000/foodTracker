@@ -15,13 +15,13 @@ exports.mealList = async (req, res) => {
 exports.mealListSearch = async(req, res) => {
     const {query} = req.body
     console.log(query)
-    axios.get('https://api.spoonacular.com/food/search?query='+query+'&apiKey='+apiKey).then(resp=> {    
-        let responses = [{simpleFood: resp.data.searchResults[5]},{recipe: resp.data.searchResults[0]}]
-        res.send(responses)
-        }) 
+    // axios.get('https://api.spoonacular.com/food/search?query='+query+'&apiKey='+apiKey).then(resp=> {    
+    //     let responses = [{simpleFood: resp.data.searchResults[5]},{recipe: resp.data.searchResults[0]}]
+    //     res.send(responses)
+    //     }) 
 
 }
 
-exports.calorieTracker = async(req, res) => {
+// exports.calorieTracker = async(req, res) => {
 
-}
+// }

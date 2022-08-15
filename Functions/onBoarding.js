@@ -35,7 +35,8 @@ exports.onBoarding = async(req, res) => {
         email,
         password: encryptedPassword,
         diet,
-        dailyCalorieNeed
+        dailyCalorieNeed,
+        digit: 1
     }).then ((user) => {
       const token = jwt.sign(
         {  _id: user._id },
@@ -78,9 +79,10 @@ exports.forgotPasswordCode = async (req, res) => {
   User.findOneAndUpdate({email: email}, 
       {digit: JSON.stringify(randomDigit)},
       function (error, success) {
-          if (error) {
-              console.log(error);
-              res.status(404)
+          if (error || success == null) {
+              res.status(404).json({
+                message: "email is invalid/ user not found"
+              })
           } else {
               const emailBody = "Hello our Food Tracker friend!\nWe've recived a request to reset your Food Tracker password. Please eneter the following code in the app:\n"
               sendEmail(email, "Food Tracker Password Reset", emailBody + JSON.stringify(randomDigit));
@@ -94,24 +96,26 @@ exports.forgotPasswordCode = async (req, res) => {
 exports.checkDigits = async (req, res) => {
   const digit = req.params.digit
   const {email} = req.body
-  // console.log(userid, digit)
-  User.find({email: email, digit: digit}, function(err, user) 
-  {
-     if (err)
-     {
-         res.send(err);
-     }
-     if (user.length === 0){
+  console.log(email, digit)
+  User.find({email: email}, function(err, user){
+    // console.log(user[0].digit)
+    if(user.length === 0){
       res.status(404).json({
-          message: '"email" and/ or "digit" is not valid!'
+        message: "email/code is invalid"
       })
-     }
-     else{
-      res.json({
-          message: "Code is valid"
+    }
+    else if (user[0].digit == digit){
+      res.status(200).json({
+        message: "Code is valid"
       })
-     }
-  });
+    }else if(user[0].digit !== digit){
+      res.status(404).json({
+        message: "email/code is invalid"
+      })
+    } else if(err){
+      console.log('no')
+    }
+  })
  }
 
 

@@ -12,7 +12,7 @@ const verifyToken = require("../middleware/auth");
 
 router.route("/foodtracker/signup").post(onBoarding)
 router.route("/foodtracker/forgotPasswordCode").post(forgotPasswordCode)
-router.route("/foodtracker/checkDigits").post(checkDigits)
+router.route("/foodtracker/checkDigits/:digit").post(checkDigits)
 router.route("/foodtracker/reccomendingCalorie").post(reccomendingCalorie)
 router.route("/foodtracker/resetPassword").post(resetPassword)
 router.route('/foodtracker/login').post(login)

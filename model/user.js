@@ -19,7 +19,8 @@ const User = mongoose.Schema({
     token:{},
     customPlate:{},
     diet:{},
-    dailyCalorieNeed:{}
+    dailyCalorieNeed:{},
+    digit:{}
 })
 
 module.exports = mongoose.model('User', User)
