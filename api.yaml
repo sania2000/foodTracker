@@ -205,22 +205,7 @@ paths:
             example: {"message":"logged in successfully", "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmU1ODc0ZWVjNjViNDFhMjRjZWQ2NGQiLCJpYXQiOjE2NTkyMDk1NTB9.BXoa3_Axxutjb37JOB_n0jrxroW1GAm-bcndxc1W_Gk"}
         400:
           description: "Bad Request"
-  # /userConnection:
-  #   post:
-  #     tags: [On Boarding]
-  #     parameters:
-  #       - in: header
-  #         name: token
-  #         descreption: token
-  #         required: true
-  #         type: string
-  #     responses:
-  #       200:
-  #         description: "Success"
-  #       404:
-  #         description: "Not Found"
-  #       400:
-  #         description: "Bad Request"
+
 
   /foodtracker/logout:
     post:
