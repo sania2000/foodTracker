@@ -119,7 +119,7 @@ paths:
             type: object
             example: {message: "email is invalid/ user not found"}
   
-  /foodtracker/checkDigits/{digit}:
+  /foodtracker/checkDigits:
     post:
       tags: [Forgot Password]
       parameters:
@@ -129,13 +129,14 @@ paths:
             type: object
             required:
             - email
+            - digit
             properties:
              email:
                 type: string
-        - in: path
-          name: digit
-          description: Digit
-          required: true
+              # digit:
+              #   type: number
+             digit:
+                type: number
       responses:
         200:
           description: "Success"

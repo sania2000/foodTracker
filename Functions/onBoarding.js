@@ -94,8 +94,8 @@ exports.forgotPasswordCode = async (req, res) => {
 }
 
 exports.checkDigits = async (req, res) => {
-  const digit = req.params.digit
-  const {email} = req.body
+  // const digit = req.params.digit
+  const {email, digit} = req.body
   console.log(email, digit)
   User.find({email: email}, function(err, user){
     // console.log(user[0].digit)
