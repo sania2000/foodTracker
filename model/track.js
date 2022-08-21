@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const Calorie = mongoose.Schema({
     name:{},
-    nutrition:{}
+    calorie:{}
 }) 
 
 module.exports = mongoose.model('Calorie', Calorie)

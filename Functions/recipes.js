@@ -3,8 +3,20 @@ const { macros } = require('fitness-calculator')
 apiKey = 'b677245ba7e34e34b921ca7303c18a45'
 
 exports.recipes = async (req, res) => {
-    axios.get('https://api.spoonacular.com/recipes/complexSearch?number=30&apiKey=' + apiKey).then(resp => {
-        res.send(resp.data)
+    const response = []
+    axios.get('https://api.spoonacular.com/recipes/complexSearch?number=30&addRecipeNutrition=true&apiKey=' + apiKey).then(resp => {
+        if (resp.data.totalResults == 0){
+            res.sendStatus(404)
+        }
+        else{for(let i=0; i<`${resp.data.number}`; i++){
+        response.push({
+            id:resp.data.results[i].id,
+            title:resp.data.results[i].title,
+            calories:resp.data.results[i].nutrition.nutrients[0],
+            image: resp.data.results[i].image
+        })
+        }
+        res.send(response)}
     })
 }
 
@@ -37,7 +49,8 @@ exports.recipeSearch = async(req, res) => {
             response.push({
                 id:resp.data.results[i].id,
                 title:resp.data.results[i].title,
-                calories:resp.data.results[i].nutrition.nutrients[0]
+                calories:resp.data.results[i].nutrition.nutrients[0],
+                image: resp.data.results[i].image
             })
             }
             console.log(parammmmms)
