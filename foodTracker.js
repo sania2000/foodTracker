@@ -26,6 +26,8 @@ app.use('/foodtracker/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerJSDocs)
 
 const Recipe = require('./model/calorie');
 const Calorie = require('./model/track')
+const Ingredient = require('./model/ingredient')
+const Data = require('./model/data')
 
 app.get('/select', async(req,res) => {
     let data = await Calorie.findOne({name: "Mini eggplant pizza"})
@@ -71,6 +73,23 @@ app.post('/fetch', async(req, res) => {
     )
     
 })
+
+
+app.post('/test', async (req, res) => {
+    let {id} =req.body
+    
+    axios.get('https://api.spoonacular.com/food/ingredients/'+id+'/information?amount=1&apiKey=e3166356f0a94a3fbed7b575773d654c').then(resp=>{
+        Data.create({
+            name: resp.data.name,
+            nutrients: resp.data.nutrition.nutrients,
+            amount:resp.data.nutrition.weightPerServing
+        }).then(pff=>{
+            pff.save()
+            res.send(pff)
+        })
+    })
+})
+
 
 
 app.listen(2500, () => {

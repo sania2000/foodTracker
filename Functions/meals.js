@@ -1,5 +1,7 @@
 apiKey = '5a7d5e15a2db4b15b3b2ed318b1c9f19'
+const e = require('express');
 const Calorie = require('../model/track')
+const Data = require('../model/data')
 
 // exports.mealList = async (req, res) => {
 //     const {foodType} = req.body
@@ -28,36 +30,50 @@ const Calorie = require('../model/track')
 
 exports.mealList = async (req, res) => {
     let response = []
-    let data = await Calorie.find();
-    for (let i=0; i<30; i++){
-        if(data[i] == null){
-            break;
-        }else{
-    response.push({name:data[i].name}, {calorie: data[i].calorie})}
+    let data = await Data.find();
+    if (data == null){
+        res.status(404).json({
+            message: "Not Found"
+        })
+    }else{
+        for (let i=0; i<10; i++){
+            if(data[i] == null){
+                break;
+            }else{
+        response.push(data[i])}
+        }
+        res.send(response)
     }
-    res.send(response)
 }
 
 exports.mealSearch = async (req, res) => {
     let response = []
-    let data = await Calorie.find(
+    let {query} = req.body
+    let data = await Data.find(
         {
             "$or":[
-                {name:{$regex:'egg'}}
+                {name:{$regex:query}}
             ]
         }
     )
-    for (let i=0; i<30; i++){
-        if(data[i] == null){
-            break;
-        }else{
-    response.push({name:data[i].name}, {calorie: data[i].calorie})}
+    if (data[0] == null){
+        res.status(404).json({
+            message: "Not Found"
+        })
+    }else{
+        
+        res.send(data)
     }
-    res.send(response)
 }
 
 exports.mealSelect = async (req, res) => {
     let {query} = req.body
     let data = await Calorie.findOne({name: query})
+    if (data == null){
+        res.status(404).json({
+            message: "Not Found"
+        })}else{
+            res.send(data) 
+        }
     res.send(data)
 }

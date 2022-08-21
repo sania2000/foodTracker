@@ -2,10 +2,9 @@ const User = require('../model/user')
 
 exports.editProfile = async(req, res) => {
     const token = req.headers['token']
-    const {firstName, lastName, gender, height, weight, diet, age} = req.body
+    const {firstName, gender, height, weight, diet, age} = req.body
     User.findOneAndUpdate({token: token}, {
         firstName,
-        lastName,
         gender,
         height,
         weight,
@@ -13,6 +12,9 @@ exports.editProfile = async(req, res) => {
         age
     }).then(changes => {
         changes.save()
+        res.status(200).json({
+            message:"Saved"
+        })
     })
 }
 
