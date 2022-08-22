@@ -12,6 +12,7 @@ const jwtSecret =
 exports.onBoarding = async(req, res) => {
     const {gender, age, activity, weight, height, diet, firstname,
     email, password, dailyCalorieNeed} = req.body
+    
 
     const oldUser = await User.findOne({ email });
     if (oldUser) {

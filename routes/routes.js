@@ -6,7 +6,7 @@ const {mealList, mealSearch, mealSelect} = require('../Functions/meals')
 const {recipes, recipeSearch, selectRecipe} = require('../Functions/recipes')
 const{generatePlan} = require('../Functions/Schedule');
 const {totalCalorie} = require('../Functions/totalCalorie')
-const {changingDailyCalorieNeed, editProfile} = require('../Functions/editProfile')
+const {changingDailyCalorieNeed, editProfile, getProfile} = require('../Functions/editProfile')
 const {createCustomPlate, selectIngredient, saveCustomPlate, platesList} = require('../Functions/customPlate')
 const verifyToken = require("../middleware/auth");
 
@@ -32,4 +32,5 @@ router.route('/foodtracker/createCustomPlate').post(verifyToken, createCustomPla
 router.route('/foodtracker/selectIngredient').post(verifyToken, selectIngredient)
 router.route('/foodtracker/saveCustomPlate').post(verifyToken, saveCustomPlate)
 router.route('/foodtracker/platesList').get(verifyToken, platesList)
+router.route('/foodTracker/getProfile').get(verifyToken, getProfile)
 module.exports = router

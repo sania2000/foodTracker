@@ -624,4 +624,18 @@ paths:
         401:
           description: "Invalid Token"
       
-                      
+  /foodTracker/getProfile:
+    get:
+      tags: [Get Profile]
+      parameters:
+        - in: header
+          name: token
+          description: token
+          required: treenut
+          type: string
+      responses:
+        200:
+          description: "Success"
+          schema:
+            type: object
+            example: {"_id":"62f89807777216f73a7e344b","firstname":"ali","lastname":"Movahed","email":"aloo@gmail.com","password":"$2a$10$G1puVULYgSZrznWkTcZcGO0hMDhI4iBIJF3gp1R1uATc3iCLDgaFm","gender":"male","age":20,"weight":100,"height":190,"activity":"extreme","diet":"keto","dailyCalorieNeed":"1200","__v":0,"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFsb29AZ21haWwuY29tIiwiaWF0IjoxNjYwNDU5Njg4fQ.PsZu7RHPuO14YHhPjcyZMyoUTXSfXeovZjcQpCt3eEo"}

@@ -27,3 +27,10 @@ exports.changingDailyCalorieNeed = async(req, res) => {
         change.save()
     })
 }
+
+exports.getProfile = async (req, res) => {
+    const token = req.headers['token']
+    User.findOne({token: token}, function(err, user) {
+        res.send(user)
+    })
+}
