@@ -53,6 +53,7 @@ paths:
             - weight
             - height
             - diet
+            - goal
             - firstname
             - email
             - password
@@ -71,6 +72,8 @@ paths:
               height:
                 type: number
               diet:
+                type: string
+              goal:
                 type: string
               firstname:
                 type: string

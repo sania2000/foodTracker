@@ -34,3 +34,8 @@ exports.getProfile = async (req, res) => {
         res.send(user)
     })
 }
+
+exports.setProfile = async(req, res) => {
+    const token = req.headers['token']
+    
+}
