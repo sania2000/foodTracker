@@ -15,6 +15,7 @@ const User = mongoose.Schema({
     height:{},
     activity:{},
     BMI:{},
+    goal:{},
     dailyCalorie:{},
     token:{},
     customPlate:{},
