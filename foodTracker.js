@@ -28,6 +28,7 @@ const Recipe = require('./model/calorie');
 const Calorie = require('./model/track')
 const Ingredient = require('./model/ingredient')
 const Data = require('./model/data')
+const User = require('./model/user')
 
 app.get('/select', async(req,res) => {
     let data = await Calorie.findOne({name: "Mini eggplant pizza"})
@@ -90,7 +91,45 @@ app.post('/test', async (req, res) => {
     })
 })
 
+const multer = require ('multer');
+const user = require('./model/user');
 
+function makeid() {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  
+    for (var i = 0; i < 5; i++)
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+  
+    return text;
+  }
+
+let profilePic = makeid()
+
+const fileStorage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, './image')
+    },
+    filename: (req, file, cb)=> {
+        cb(null, profilePic + '.jpg')
+    }
+})
+
+const upload = multer({storage: fileStorage})
+
+app.post('/setProfile', upload.single('image'),(req, res) => {
+    const token = req.headers['token']
+    User.findOneAndUpdate({token: token},{profilePic: profilePic + '.jpg'}, function(err, user){
+        res.send(user.profilePic)
+    })
+})
+
+app.get('/getProfile', (req, res) => {
+    const token = req.headers['token']
+    User.findOne({token: token}, function(err, doc) {
+        res.sendFile('C:/Users/sania/Desktop/Enigma Projects/Food Tracker/image/'+ doc.profilePic)
+    })
+})
 
 app.listen(2500, () => {
     console.log('FoodTracker is up')

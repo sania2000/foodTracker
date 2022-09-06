@@ -2,6 +2,7 @@ const express = require("express")
 const auth = require("../middleware/auth");
 const router = express.Router()
 const {onBoarding, login, userConnection, logout, reccomendingCalorie, forgotPasswordCode, checkDigits, resetPassword} = require('../Functions/onBoarding')
+const {forgotPasswordCode} = require('../utils/sendEmail')
 const {mealList, mealSearch, mealSelect} = require('../Functions/meals')
 const {recipes, recipeSearch, selectRecipe} = require('../Functions/recipes')
 const{generatePlan} = require('../Functions/Schedule');

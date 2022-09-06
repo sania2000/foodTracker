@@ -1,64 +1,179 @@
 const axios = require('axios')
 const { macros } = require('fitness-calculator')
-apiKey = 'b677245ba7e34e34b921ca7303c18a45'
+const apiKey = '069c7142c3f44e45b8702ba040e9032f'
+
+let tempRes = [
+    {
+      "id": 716426,
+      "title": "Cauliflower, Brown Rice, and Vegetable Fried Rice",
+      "calories": {
+        "name": "Calories",
+        "amount": 191.71,
+        "unit": "kcal",
+        "percentOfDailyNeeds": 9.59
+      },
+      "image": "https://spoonacular.com/recipeImages/716426-312x231.jpg"
+    },
+    {
+      "id": 715594,
+      "title": "Homemade Garlic and Basil French Fries",
+      "calories": {
+        "name": "Calories",
+        "amount": 556.62,
+        "unit": "kcal",
+        "percentOfDailyNeeds": 27.83
+      },
+      "image": "https://spoonacular.com/recipeImages/715594-312x231.jpg"
+    },
+    {
+      "id": 715497,
+      "title": "Berry Banana Breakfast Smoothie",
+      "calories": {
+        "name": "Calories",
+        "amount": 440.37,
+        "unit": "kcal",
+        "percentOfDailyNeeds": 22.02
+      },
+      "image": "https://spoonacular.com/recipeImages/715497-312x231.jpg"
+    },
+    {
+      "id": 644387,
+      "title": "Garlicky Kale",
+      "calories": {
+        "name": "Calories",
+        "amount": 169.87,
+        "unit": "kcal",
+        "percentOfDailyNeeds": 8.49
+      },
+      "image": "https://spoonacular.com/recipeImages/644387-312x231.jpg"
+    },
+    {
+      "id": 716268,
+      "title": "African Chicken Peanut Stew",
+      "calories": {
+        "name": "Calories",
+        "amount": 1197.3,
+        "unit": "kcal",
+        "percentOfDailyNeeds": 59.86
+      },
+      "image": "https://spoonacular.com/recipeImages/716268-312x231.jpg"
+    },
+    {
+      "id": 716381,
+      "title": "Nigerian Snail Stew",
+      "calories": {
+        "name": "Calories",
+        "amount": 348.52,
+        "unit": "kcal",
+        "percentOfDailyNeeds": 17.43
+      },
+      "image": "https://spoonacular.com/recipeImages/716381-312x231.jpg"
+    },
+    {
+      "id": 782601,
+      "title": "Red Kidney Bean Jambalaya",
+      "calories": {
+        "name": "Calories",
+        "amount": 551.94,
+        "unit": "kcal",
+        "percentOfDailyNeeds": 27.6
+      },
+      "image": "https://spoonacular.com/recipeImages/782601-312x231.jpg"
+    },
+    {
+      "id": 794349,
+      "title": "Broccoli and Chickpea Rice Salad",
+      "calories": {
+        "name": "Calories",
+        "amount": 524.29,
+        "unit": "kcal",
+        "percentOfDailyNeeds": 26.21
+      },
+      "image": "https://spoonacular.com/recipeImages/794349-312x231.jpg"
+    },
+    {
+      "id": 639535,
+      "title": "Citrusy Pecan Garbanzo Couscous: A Salad For Cold Weather",
+      "calories": {
+        "name": "Calories",
+        "amount": 561.77,
+        "unit": "kcal",
+        "percentOfDailyNeeds": 28.09
+      },
+      "image": "https://spoonacular.com/recipeImages/639535-312x231.jpg"
+    },
+    {
+      "id": 652417,
+      "title": "Moroccan chickpea and lentil stew",
+      "calories": {
+        "name": "Calories",
+        "amount": 465.63,
+        "unit": "kcal",
+        "percentOfDailyNeeds": 23.28
+      },
+      "image": "https://spoonacular.com/recipeImages/652417-312x231.jpg"
+    }
+  ]
 
 exports.recipes = async (req, res) => {
-    const response = []
-    axios.get('https://api.spoonacular.com/recipes/complexSearch?number=30&addRecipeNutrition=true&apiKey=' + apiKey).then(resp => {
-        if (resp.data.totalResults == 0){
-            res.sendStatus(404)
-        }
-        else{for(let i=0; i<`${resp.data.number}`; i++){
-        response.push({
-            id:resp.data.results[i].id,
-            title:resp.data.results[i].title,
-            calories:resp.data.results[i].nutrition.nutrients[0],
-            image: resp.data.results[i].image
-        })
-        }
-        res.send(response)}
-    })
+    // const response = []
+    // axios.get('https://api.spoonacular.com/recipes/complexSearch?number=30&addRecipeNutrition=true&apiKey=' + apiKey).then(resp => {
+    //     if (resp.data.totalResults == 0){
+    //         res.sendStatus(404)
+    //     }
+    //     else{for(let i=0; i<`${resp.data.number}`; i++){
+    //     response.push({
+    //         id:resp.data.results[i].id,
+    //         title:resp.data.results[i].title,
+    //         calories:resp.data.results[i].nutrition.nutrients[0],
+    //         image: resp.data.results[i].image
+    //     })
+    //     }
+    //     res.send(response)}
+    // })
+    res.send(tempRes)
 }
 
 
 exports.recipeSearch = async(req, res) => {
     let parammmmms = {}
     let {query, diet, maxCalories, maxReadyTime, intolerances, type}=req.body
-    let response = []
+    // let response = []
     
-    parammmmms = {
-        addRecipeNutrition : true,
-        instructionsRequired: false,
-        addRecipeInformation: false,
-        fillIngredients: false,
-        apiKey: apiKey,
-    }
+    // parammmmms = {
+    //     addRecipeNutrition : true,
+    //     instructionsRequired: false,
+    //     addRecipeInformation: false,
+    //     fillIngredients: false,
+    //     apiKey: apiKey,
+    // }
 
-    query != undefined? parammmmms['query'] = query : void 0
-    diet != undefined? parammmmms['diet'] = diet : void 0
-    maxCalories != undefined? parammmmms['maxCalories'] = maxCalories : void 0
-    maxReadyTime != undefined? parammmmms['maxReadyTime'] = maxReadyTime : void 0
-    intolerances != undefined? parammmmms['intolerances'] = intolerances : void 0
-    type != undefined? parammmmms['type'] = type : void 0
+    // query != undefined? parammmmms['query'] = query : void 0
+    // diet != undefined? parammmmms['diet'] = diet : void 0
+    // maxCalories != undefined? parammmmms['maxCalories'] = maxCalories : void 0
+    // maxReadyTime != undefined? parammmmms['maxReadyTime'] = maxReadyTime : void 0
+    // intolerances != undefined? parammmmms['intolerances'] = intolerances : void 0
+    // type != undefined? parammmmms['type'] = type : void 0
 
-    axios.get('https://api.spoonacular.com/recipes/complexSearch', { params: parammmmms }).then(resp => {
-            if (resp.data.totalResults == 0){
-                res.sendStatus(404)
-            }
-            else{for(let i=0; i<`${resp.data.number}`; i++){
-            response.push({
-                id:resp.data.results[i].id,
-                title:resp.data.results[i].title,
-                calories:resp.data.results[i].nutrition.nutrients[0],
-                image: resp.data.results[i].image
-            })
-            }
-            console.log(parammmmms)
-            res.send(response)}
+    // axios.get('https://api.spoonacular.com/recipes/complexSearch', { params: parammmmms }).then(resp => {
+    //         if (resp.data.totalResults == 0){
+    //             res.sendStatus(404)
+    //         }
+    //         else{for(let i=0; i<`${resp.data.number}`; i++){
+    //         response.push({
+    //             id:resp.data.results[i].id,
+    //             title:resp.data.results[i].title,
+    //             calories:resp.data.results[i].nutrition.nutrients[0],
+    //             image: resp.data.results[i].image
+    //         })
+    //         }
+    //         console.log(parammmmms)
+    //         res.send(response)}
 
-        }
+    //     }
         
-            )
+    //         )
+    res.send(tempRes)
             
 }
 

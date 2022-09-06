@@ -4,6 +4,7 @@ const axios = require('axios')
 const User = require('../model/user')
 const fitnessCalculatorFunctions = require("fitness-calculator");
 const sendEmail = require( '../utils/sendEmail')
+const hbs = require('nodemailer-express-handlebars')
 
 const jwtSecret =
   "4715aed3c946f7b0a38e6b534a9583628d84e96d10fbc04700770d572af3dce43625dd";
@@ -74,6 +75,7 @@ exports.reccomendingCalorie = async(req, res) => {
       res.sendStatus(400)
     }
 }
+
 
 exports.forgotPasswordCode = async (req, res) => {
   let randomDigit = Math.floor(1000 + (9999 - 1000) * Math.random())

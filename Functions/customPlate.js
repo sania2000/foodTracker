@@ -1,6 +1,7 @@
 const axios = require('axios')
 const User = require('../model/user')
 const Plate = require ('../model/plate')
+const apiKey = '069c7142c3f44e45b8702ba040e9032f'
 
 exports.createCustomPlate = async(req, res) => {
     const {query}=req.body

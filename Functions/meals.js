@@ -1,4 +1,4 @@
-apiKey = '5a7d5e15a2db4b15b3b2ed318b1c9f19'
+const apiKey = '069c7142c3f44e45b8702ba040e9032f'
 const e = require('express');
 const Calorie = require('../model/track')
 const Data = require('../model/data')

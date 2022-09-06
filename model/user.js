@@ -21,7 +21,8 @@ const User = mongoose.Schema({
     customPlate:{},
     diet:{},
     dailyCalorieNeed:{},
-    digit:{}
+    digit:{},
+    profilePic:{}
 })
 
 module.exports = mongoose.model('User', User)

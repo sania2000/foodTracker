@@ -1,5 +1,5 @@
 const axios = require ('axios')
-apiKey = '7e77db1394de44a0a9ec0ce4b2dddfbf';
+const apiKey = '069c7142c3f44e45b8702ba040e9032f'
 const User = require('../model/user')
 
 exports.generatePlan = async(req, res) => {

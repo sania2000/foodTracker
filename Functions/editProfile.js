@@ -35,7 +35,4 @@ exports.getProfile = async (req, res) => {
     })
 }
 
-exports.setProfile = async(req, res) => {
-    const token = req.headers['token']
-    
-}
+
