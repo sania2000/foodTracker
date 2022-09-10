@@ -6,6 +6,9 @@ const fitnessCalculatorFunctions = require("fitness-calculator");
 const sendEmail = require( '../utils/sendEmail')
 const hbs = require('nodemailer-express-handlebars')
 const key = ['7e77db1394de44a0a9ec0ce4b2dddfbf', '8e1bc56cf1d84c6b8c510a7560ecded4']
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
 
 const apiKey = key[getRandomInt(1)]
 
