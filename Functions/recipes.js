@@ -1,6 +1,6 @@
 const axios = require('axios')
 const { macros } = require('fitness-calculator')
-const apiKey = '069c7142c3f44e45b8702ba040e9032f'
+const apiKey = 'bff6a9694faf437699c3580ca49ce114'
 
 let tempRes = [
     {

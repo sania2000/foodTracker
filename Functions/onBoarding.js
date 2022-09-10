@@ -8,7 +8,7 @@ const hbs = require('nodemailer-express-handlebars')
 
 const jwtSecret =
   "4715aed3c946f7b0a38e6b534a9583628d84e96d10fbc04700770d572af3dce43625dd";
-  apiKey = '5a7d5e15a2db4b15b3b2ed318b1c9f19'
+  apiKey = 'bff6a9694faf437699c3580ca49ce114'
 
 exports.onBoarding = async(req, res) => {
     const {gender, age, activity, weight, height, diet, firstname,
