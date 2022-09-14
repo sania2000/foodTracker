@@ -127,7 +127,7 @@ app.post('/foodTracker/setProfile', upload.single('image'),(req, res) => {
 app.get('/foodTracker/getProfilePic', (req, res) => {
     const token = req.headers['token']
     User.findOne({token: token}, function(err, doc) {
-        res.sendFile('C:/Users/sania/Desktop/Enigma Projects/Food Tracker/image/'+ doc.profilePic)
+        res.sendFile(__dirname + '/image/' + doc.profilePic)
     })
 })
 

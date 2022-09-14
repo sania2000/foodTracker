@@ -729,7 +729,6 @@ paths:
   /foodTracker/setProfile:
     post:
       tags: [Profile Picture]
-      description: returns an array containing plant's name and health status
       consumes:
        - multipart/form-data
       parameters:
