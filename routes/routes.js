@@ -5,7 +5,7 @@ const {onBoarding, login, userConnection, logout, reccomendingCalorie, forgotPas
 const {mealList, mealSearch, mealSelect} = require('../Functions/meals')
 const {recipes, recipeSearch, selectRecipe} = require('../Functions/recipes')
 const{generatePlan} = require('../Functions/Schedule');
-const {totalCalorie} = require('../Functions/totalCalorie')
+const {totalCalorie, getDiary, getScpecificDate} = require('../Functions/totalCalorie')
 const {changingDailyCalorieNeed, editProfile, getProfile} = require('../Functions/editProfile')
 const {createCustomPlate, selectIngredient, saveCustomPlate, platesList} = require('../Functions/customPlate')
 const verifyToken = require("../middleware/auth");
@@ -25,7 +25,7 @@ router.route('/foodtracker/recipes').get(verifyToken,recipes)
 router.route('/foodtracker/recipeSearch').post(verifyToken,recipeSearch)
 router.route('/foodtracker/selectRecipe').post(verifyToken,selectRecipe)
 router.route('/foodtracker/generatePlan').post(verifyToken,generatePlan)
-router.route('/foodtracker/dailyCalorie').get(verifyToken, totalCalorie)
+router.route('/foodtracker/dailyCalorie').post(verifyToken, totalCalorie)
 router.route('/foodtracker/changingDailyCalorieNeed').post(verifyToken, changingDailyCalorieNeed)
 router.route('/foodtracker/editProfile').post(verifyToken, editProfile)
 router.route('/foodtracker/createCustomPlate').post(verifyToken, createCustomPlate)
@@ -33,4 +33,6 @@ router.route('/foodtracker/selectIngredient').post(verifyToken, selectIngredient
 router.route('/foodtracker/saveCustomPlate').post(verifyToken, saveCustomPlate)
 router.route('/foodtracker/platesList').get(verifyToken, platesList)
 router.route('/foodTracker/getProfile').get(verifyToken, getProfile)
+router.route('/foodTracker/getDiary').get(verifyToken, getDiary)
+router.route('/foodTracker/getScpecificDate').get(verifyToken, getScpecificDate)
 module.exports = router

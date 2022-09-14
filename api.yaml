@@ -634,7 +634,7 @@ paths:
         - in: header
           name: token
           description: token
-          required: treenut
+          required: true
           type: string
       responses:
         200:
@@ -642,3 +642,84 @@ paths:
           schema:
             type: object
             example: {"_id":"62f89807777216f73a7e344b","firstname":"ali","lastname":"Movahed","email":"aloo@gmail.com","password":"$2a$10$G1puVULYgSZrznWkTcZcGO0hMDhI4iBIJF3gp1R1uATc3iCLDgaFm","gender":"male","age":20,"weight":100,"height":190,"activity":"extreme","diet":"keto","dailyCalorieNeed":"1200","__v":0,"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFsb29AZ21haWwuY29tIiwiaWF0IjoxNjYwNDU5Njg4fQ.PsZu7RHPuO14YHhPjcyZMyoUTXSfXeovZjcQpCt3eEo"}
+
+
+  /foodTracker/dailyCalorie:
+    post:
+      tags: [Statistics]
+      parameters:
+        - in: header
+          name: token
+          description: token
+          required: true
+          type: string
+        - in: body
+          name: date & nutrition
+          schema:
+            type: object
+            required:
+              - date
+              - nutrition
+            properties:
+              date:
+                type: string
+              nutrition:
+                type: object
+                example: {"calorie": 0, "protein": 0, "fat": 0, "carbohydrate": 0}
+      responses:
+        200:
+          description: "Success"
+          schema:
+            type: object
+            example: {message: "Saved"}
+        401:
+          description: "Invalid Token"
+  /foodTracker/getDiary:
+    get:
+      tags: [Statistics]
+      parameters:
+        - in: header
+          name: token
+          description: token
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Success"
+          schema:
+            type: object
+            example: [{"_id":"6321956186b3386290858ee6","email":"aloo@gmail.com","date":"21/26/08","nutrition":{"Calorie": 0,"Protein": 0, "Fat": 0, "Carbohydrate": 0},"__v":0}, {"_id":"6321956186b3386290858ee6","email":"aloo@gmail.com","date":"21/27/08","nutrition":{"Calorie": 0,"Protein": 0, "Fat": 0, "Carbohydrate": 0},"__v":0}, {"_id":"6321956186b3386290858ee6","email":"aloo@gmail.com","date":"21/28/08","nutrition":{"Calorie": 0,"Protein": 0, "Fat": 0, "Carbohydrate": 0},"__v":0}]
+        401:
+          description: "Invalid Token"
+        404:
+          description: "Not Found"
+
+  /foodTracker/getScpecificDate:
+    get:
+      tags: [Statistics]
+      parameters:
+        - in: header
+          name: token
+          description: token
+          required: true
+          type: string
+        - in: body
+          name: date
+          schema:
+            type: object
+            required:
+              - date
+            properties:
+              date:
+                type: string
+      responses:
+        200:
+          description: "Success"
+          schema:
+            type: object
+            example: [{"_id":"6321956186b3386290858ee6","email":"aloo@gmail.com","date":"21/26/08","nutrition":{"Calorie": 0,"Protein": 0, "Fat": 0, "Carbohydrate": 0},"__v":0}]
+        401:
+          description: "Invalid Token"
+        404:
+          description: "Not Found"
+              
