@@ -34,5 +34,3 @@ exports.getProfile = async (req, res) => {
         res.send(user)
     })
 }
-
-

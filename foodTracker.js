@@ -117,14 +117,14 @@ const fileStorage = multer.diskStorage({
 
 const upload = multer({storage: fileStorage})
 
-app.post('/setProfile', upload.single('image'),(req, res) => {
+app.post('/foodTracker/setProfile', upload.single('image'),(req, res) => {
     const token = req.headers['token']
     User.findOneAndUpdate({token: token},{profilePic: profilePic + '.jpg'}, function(err, user){
-        res.send(user.profilePic)
+        res.json({message: "Saved"})
     })
 })
 
-app.get('/getProfile', (req, res) => {
+app.get('/foodTracker/getProfilePic', (req, res) => {
     const token = req.headers['token']
     User.findOne({token: token}, function(err, doc) {
         res.sendFile('C:/Users/sania/Desktop/Enigma Projects/Food Tracker/image/'+ doc.profilePic)

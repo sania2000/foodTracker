@@ -579,6 +579,7 @@ paths:
               - height
               - weight
               - age
+              - diet
             properties:
               firstName:
                 type: string
@@ -591,6 +592,8 @@ paths:
                 type: number
               age:
                 type: number
+              diet:
+                type: string
       responses:
         200:
           description: "Success"
@@ -723,3 +726,37 @@ paths:
         404:
           description: "Not Found"
               
+  /foodTracker/setProfile:
+    post:
+      tags: [Profile Picture]
+      description: returns an array containing plant's name and health status
+      consumes:
+       - multipart/form-data
+      parameters:
+        - in: header
+          name: token
+          description: token
+          required: true
+          type: string
+        - in: formData
+          name: image
+          type: file
+          required: true
+      responses:
+        200:
+          description: "Success"
+          schema: 
+            type: object
+            example: {message: "Saved"}
+  /foodTracker/getProfilePic:
+    get:
+      tags: [Profile Picture]
+      parameters:
+        - in: header
+          name: token
+          description: token
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Success"
