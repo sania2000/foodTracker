@@ -131,6 +131,38 @@ app.get('/foodTracker/getProfilePic', (req, res) => {
     })
 })
 
+
+const Plate = require ('./model/plate')
+
+app.post('/foodTracker/saveCustomPlate', async(req, res) => {
+    const token = req.headers['token']
+    const {name, ingredients, data} = req.body
+    User.find({token: token}, function(req, usr){
+        console.log(usr[0].email)
+        Plate.create({
+            name: name,
+            ingredients: ingredients,
+            totalCalorie: data,
+            email: usr[0].email,
+            platePic: `${name}-${usr[0].email}.jpg`
+        }).then(plate => {
+            plate.save()
+            res.json({
+                message: "Saved"
+            })
+        })
+    })
+})
+
+app.get('/foodTracker/getPlatePic', (req, res) => {
+    const token = req.headers['token']
+    Plate.findOne({token: token}, function(err, doc) {
+        res.sendFile(__dirname + '/image/' + doc.platePic)
+    })
+})
+
+
+
 app.listen(2500, () => {
     console.log('FoodTracker is up')
 })

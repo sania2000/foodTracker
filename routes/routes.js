@@ -30,7 +30,7 @@ router.route('/foodtracker/changingDailyCalorieNeed').post(verifyToken, changing
 router.route('/foodtracker/editProfile').post(verifyToken, editProfile)
 router.route('/foodtracker/createCustomPlate').post(verifyToken, createCustomPlate)
 router.route('/foodtracker/selectIngredient').post(verifyToken, selectIngredient)
-router.route('/foodtracker/saveCustomPlate').post(verifyToken, saveCustomPlate)
+// router.route('/foodtracker/saveCustomPlate').post(verifyToken, saveCustomPlate)
 router.route('/foodtracker/platesList').get(verifyToken, platesList)
 router.route('/foodTracker/getProfile').get(verifyToken, getProfile)
 router.route('/foodTracker/getDiary').get(verifyToken, getDiary)

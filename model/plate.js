@@ -6,7 +6,8 @@ const Plate = mongoose.Schema({
     name:{},
     ingredients:{},
     totalCalorie:{},
-    token:{}
+    email:{},
+    platePic:{}
 })
 
 module.exports = mongoose.model('Plate', Plate)

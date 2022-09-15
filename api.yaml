@@ -390,6 +390,8 @@ paths:
   /foodtracker/selectIngredient:
     post:
       tags: [Custom Plate]
+      consumes:
+       - multipart/form-data
       parameters:
         - in: header
           name: token
@@ -427,6 +429,9 @@ paths:
           descreption: token
           required: true
           type: string
+        - in: formData
+          name: image
+          type: file
         - in: body
           name: Custom Plate Data
           schema:
@@ -469,7 +474,18 @@ paths:
             example: [{"_id": "62f3a7eaeb734ac68b751ed1","name": "tomato soup","ingredients": {"tomato": "2","onion": "1"},"totalCalorie": {"Calorie": "0","Carb": "0","Protein": "0","Fat": "0"},"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmU4Yjk4NjdkZDdhNjcxN2UxOGMzODgiLCJpYXQiOjE2NTk0MTkwMTR9.nqBg65VtRDBol54Vnf4UW6xMhQ9qxi4aIriNcT-lmyk","__v": 0}]
         401:
           description: "Invalid Token"
-
+  /foodTracker/getPlatePic:
+    get:
+      tags: [Custom Plate]
+      parameters:
+        - in: header
+          name: token
+          description: token
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Success"
 
   /foodtracker/mealList:
     get:
