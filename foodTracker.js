@@ -156,9 +156,12 @@ app.post('/foodTracker/saveCustomPlate', async(req, res) => {
 
 app.get('/foodTracker/getPlatePic', (req, res) => {
     const token = req.headers['token']
-    Plate.findOne({token: token}, function(err, doc) {
-        res.sendFile(__dirname + '/image/' + doc.platePic)
-    })
+    User.findOne({token: token}, function(err, doc){
+        Plate.findOne({email: doc.email}, function(err, plate) {
+            res.sendFile(__dirname + '/image/' + plate.platePic)
+        })
+        console.log(doc.email)})
+    
 })
 
 
