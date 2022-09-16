@@ -511,7 +511,7 @@ paths:
           description: "Invalid Token"
 
   /foodtracker/mealSearch:
-    get:
+    post:
       tags: [Meals]
       parameters:
         - in: header
